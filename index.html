@@ -623,6 +623,10 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 .logo{min-width:0;overflow:hidden}
 /* menu links are hidden on smaller screens: keep the Store button on the right */
 @media (max-width:900px){.nav>.cta{margin-left:auto}}
+/* HP monogram */
+.logo .hp{width:26px;height:26px;flex:none}
+.mark .hp{width:.85em;height:.85em;flex:none;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.mark:hover .hp{transform:rotate(-12deg) scale(1.04)}
 /* one app in the viewer: no side list */
 .steps{display:none}
 .pin{grid-template-columns:1fr 300px}
@@ -630,9 +634,17 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <linearGradient id="hpg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFC93D"/><stop offset=".35" stop-color="#FF8A3D"/><stop offset=".68" stop-color="#FF3D81"/><stop offset="1" stop-color="#B04DFF"/></linearGradient>
+  <symbol id="hp" viewBox="0 0 100 100">
+    <g fill="none" stroke="url(#hpg)" stroke-width="5" stroke-linecap="round"><path d="M46.5 6.6 A43.5 43.5 0 0 0 46.5 93.4"/><path d="M53.5 6.6 A43.5 43.5 0 0 1 53.5 93.4"/></g>
+    <g fill="#F5F6FF"><rect x="22" y="30" width="10" height="40" rx="1"/><rect x="31" y="45" width="14" height="9"/><path d="M57 30 H66.5 C74.5 30 79.5 35.3 79.5 43 C79.5 50.7 74.5 56 66.5 56 H60 V47.5 H66 C69 47.5 71 45.6 71 43 C71 40.4 69 38.5 66 38.5 H57 Z"/></g>
+    <path fill="url(#hpg)" d="M43 30 H52.5 V43 C52.5 47.5 60 49.5 60 56.5 V70 H50.5 V58 C50.5 53.5 43 51.5 43 45 Z"/>
+  </symbol>
+</defs></svg>
 
 <nav class="nav" aria-label="Main">
-  <a class="logo" href="#top" aria-label="Harshvardhan Rathod"><span class="bars eq"><i></i><i></i><i></i><i></i></span><span class="lname" id="lname" aria-hidden="true">Harshvardhan Rathod</span></a>
+  <a class="logo" href="#top" aria-label="Harshvardhan Rathod"><svg class="hp" aria-hidden="true"><use href="#hp"/></svg><span class="lname" id="lname" aria-hidden="true">Harshvardhan Rathod</span></a>
   <div class="seg"><a href="#typing" class="on" id="segT">Typing</a><a href="#apps" id="segA">Apps</a></div>
   <div class="links"><a href="#about">About</a><a href="#contact">Contact</a></div>
   <a class="cta" href="https://apps.microsoft.com/search/publisher?name=Harshvardhan+Pankajbhai+Rathod&amp;hl=en-GB&amp;gl=IN" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="6.5" height="6.5" fill="currentColor"/><rect x="8.5" y="1" width="6.5" height="6.5" fill="currentColor"/><rect x="1" y="8.5" width="6.5" height="6.5" fill="currentColor"/><rect x="8.5" y="8.5" width="6.5" height="6.5" fill="currentColor"/></svg><span class="cta-t">Get it free</span></a>
@@ -797,7 +809,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
     </div>
 
     <footer>
-      <div class="mark" aria-label="Harshvardhan"><span class="bars"><i></i><i></i><i></i><i></i></span><span class="txtm">Harshvardhan</span></div>
+      <div class="mark" aria-label="Harshvardhan"><svg class="hp" aria-hidden="true"><use href="#hp"/></svg><span class="txtm">Harshvardhan</span></div>
       <div class="foot"><span>© 2026 Harshvardhan Rathod</span><span>Made in Gujarat, for every Indian language</span></div>
     </footer>
   </div>
