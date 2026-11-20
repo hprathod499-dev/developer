@@ -25,7 +25,9 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Harshvardhan Rathod","url":"https://developer.nokribook.in/","jobTitle":"App developer","sameAs":["https://apps.microsoft.com/search/publisher?name=Harshvardhan+Pankajbhai+Rathod","https://nokribook.in"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&family=Roboto:wght@400;500;700&family=Noto+Sans+Gujarati:wght@500;700&family=Noto+Sans+Devanagari:wght@500;700&family=Noto+Sans+Bengali:wght@500;700&family=Noto+Sans+Tamil:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&family=Noto+Sans+Gujarati:wght@500;700&display=swap" rel="stylesheet">
+<!-- Hindi, Marathi, Bengali and Tamil appear only in a few words here, so only those letters are downloaded -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@500;700&family=Noto+Sans+Bengali:wght@500;700&family=Noto+Sans+Tamil:wght@500;700&display=swap&text=%E0%A4%80%E0%A4%82%E0%A4%85%E0%A4%86%E0%A4%87%E0%A4%95%E0%A4%9D%E0%A4%9F%E0%A4%A0%E0%A4%A1%E0%A4%A4%E0%A4%A6%E0%A4%A7%E0%A4%A8%E0%A4%AA%E0%A4%AE%E0%A4%AF%E0%A4%B0%E0%A4%B5%E0%A4%B7%E0%A4%B8%E0%A4%B9%E0%A4%BC%E0%A4%BE%E0%A4%BF%E0%A5%80%E0%A5%87%E0%A5%88%E0%A5%8B%E0%A5%8C%E0%A5%8D%E0%A5%90%E0%A6%82%E0%A6%86%E0%A6%87%E0%A6%95%E0%A6%9B%E0%A6%9F%E0%A6%A0%E0%A6%A1%E0%A6%A7%E0%A6%A8%E0%A6%AA%E0%A6%AC%E0%A6%AD%E0%A6%AE%E0%A6%B0%E0%A6%B2%E0%A6%B7%E0%A6%B9%E0%A6%BC%E0%A6%BE%E0%A6%BF%E0%A7%8B%E0%A7%8D%E0%AE%8E%E0%AE%95%E0%AE%9F%E0%AE%A3%E0%AE%A4%E0%AE%A9%E0%AE%AA%E0%AE%AE%E0%AE%AF%E0%AE%B0%E0%AE%B4%E0%AE%B5%E0%AE%B7%E0%AE%B9%E0%AE%BE%E0%AE%BF%E0%AF%86%E0%AF%8B%E0%AF%8D%E2%80%8C%E2%80%8D%20" rel="stylesheet">
 <style>
 /* Layout idea: a calm cream page that turns into rounded dark and green "chapters"; words in five scripts flow along a curve; apps told as a pinned scroll story. */
 :root{
@@ -468,7 +470,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 .ms svg .f{fill:currentColor;stroke:none}
 .scard .ms{width:18px;height:18px}
 .m3{--p:#B3261E;--onp:#fff;--pc:#FFDAD6;--onpc:#410002;--sf:#FFF8F6;--sc:#FCEAE7;--sch:#F6E1DD;--on:#231918;--onv:#534341;--ol:#D8C2BF;
-  background:var(--sf);color:var(--on);font-family:"Roboto","Noto Sans Gujarati",system-ui,sans-serif;font-size:12px}
+  background:var(--sf);color:var(--on);font-family:"Figtree","Noto Sans Gujarati",system-ui,sans-serif;font-size:12px}
 .t-nokri{--p:#C2410C;--pc:#FFDBCB;--onpc:#3A0B00;--sf:#FFF8F5;--sc:#FCEDE6;--sch:#F5E2D9;--on:#221A15;--onv:#53443C;--ol:#D9C2B8}
 .t-crime{--p:#8C5000;--pc:#FFDDB6;--onpc:#2D1600;--sf:#FFF8F4;--sc:#F9EDE2;--sch:#F2E3D6;--on:#201A14;--onv:#504539;--ol:#D5C4B5}
 .t-review{--p:#6A3FC8;--pc:#E9DDFF;--onpc:#22005D;--sf:#FDF7FF;--sc:#F2ECF7;--sch:#ECE5F2;--on:#1D1B20;--onv:#49454F;--ol:#CBC4D0}
@@ -483,7 +485,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 .sbar>span:first-child{margin-right:auto}
 .appbar{display:flex;align-items:center;justify-content:space-between;padding:6px 4px 0}
 .appbar small{display:block;color:var(--onv);font-size:10.5px}
-.appbar h4{margin:0;font:500 19px/1.25 "Roboto","Noto Sans Gujarati",sans-serif;font-weight:600;letter-spacing:0}
+.appbar h4{margin:0;font:500 19px/1.25 "Figtree","Noto Sans Gujarati",sans-serif;font-weight:600;letter-spacing:0}
 .avatar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--p);color:var(--onp);font-weight:700;font-size:11px;flex:none}
 .avatar.sm{width:26px;height:26px;font-size:10px}
 .seg3,.seg2{display:flex;border:1px solid var(--ol);border-radius:999px;overflow:hidden;height:30px}
@@ -553,7 +555,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 
 /* find */
 .dev.t-find{padding:14px;gap:8px}
-.searchbar.big{height:42px;background:var(--sch);color:var(--on);font-size:13px;font-family:"Roboto",sans-serif}
+.searchbar.big{height:42px;background:var(--sch);color:var(--on);font-size:13px;font-family:"Figtree",sans-serif}
 .searchbar.big .q{font-weight:500}
 .searchbar.big .caret{background:var(--p)}
 .searchbar .tr{margin-left:auto;margin-right:6px;color:var(--onv)}
@@ -619,15 +621,31 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 .store .lang{flex:0 0 calc((100% - 48px)/5)}
 @media (max-width:900px){.store .lang{flex-basis:calc((100% - 24px)/3)}}
 @media (max-width:560px){.store .lang{flex-basis:calc((100% - 12px)/2)}}
+
+/* ===== Gujarati / English switch ===== */
+:root{--sans:"Figtree","Noto Sans Gujarati","Segoe UI",system-ui,sans-serif;--disp:"Bricolage Grotesque","Noto Sans Gujarati","Segoe UI",system-ui,sans-serif;--serif:"Instrument Serif","Noto Sans Gujarati","Times New Roman",serif}
+.lang-btn{flex:none;height:34px;min-width:40px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--tx);font:700 14px var(--indic);cursor:pointer;transition:background .2s}
+.lang-btn:hover{background:rgba(255,255,255,.12)}
+.nav .links{margin-left:0}
+.nav .lang-btn{margin-left:auto}
+html[lang="gu"] h1,html[lang="gu"] h2,html[lang="gu"] h3{letter-spacing:0;line-height:1.25}
+html[lang="gu"] .hero h1{line-height:1.2}
+html[lang="gu"] .lang-btn{font-family:var(--sans);font-size:13px}
+@media (max-width:560px){html[lang="gu"] .cta-t::after{content:"મેળવો"}}
+html[lang="gu"] .eyebrow,html[lang="gu"] .swipe-hint{letter-spacing:0;text-transform:none;font-family:var(--indic)}
+html[lang="gu"] .eyebrow{font-size:13px}
+.logo{min-width:0;overflow:hidden}
+@media (max-width:560px){.nav{gap:8px}.lang-btn{min-width:36px;padding:0 8px}}
 </style>
 </head>
 <body>
 
 <nav class="nav" aria-label="Main">
   <a class="logo" href="#top" aria-label="Harshvardhan Rathod"><span class="bars eq"><i></i><i></i><i></i><i></i></span><span class="lname" id="lname" aria-hidden="true">Harshvardhan Rathod</span></a>
-  <div class="seg"><a href="#typing" class="on" id="segT">Typing</a><a href="#apps" id="segA">Apps</a></div>
-  <div class="links"><a href="#about">About</a><a href="#contact">Contact</a></div>
-  <a class="cta" href="https://apps.microsoft.com/search/publisher?name=Harshvardhan+Pankajbhai+Rathod&amp;hl=en-GB&amp;gl=IN" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="6.5" height="6.5" fill="currentColor"/><rect x="8.5" y="1" width="6.5" height="6.5" fill="currentColor"/><rect x="1" y="8.5" width="6.5" height="6.5" fill="currentColor"/><rect x="8.5" y="8.5" width="6.5" height="6.5" fill="currentColor"/></svg><span class="cta-t">Get it free</span></a>
+  <div class="seg"><a data-gu='ટાઇપિંગ' href="#typing" class="on" id="segT">Typing</a><a data-gu='એપ્સ' href="#apps" id="segA">Apps</a></div>
+  <button type="button" class="lang-btn" id="langBtn" aria-label="ગુજરાતીમાં જુઓ" lang="gu">ગુ</button>
+  <div class="links"><a data-gu='મારા વિશે' href="#about">About</a><a data-gu='સંપર્ક' href="#contact">Contact</a></div>
+  <a class="cta" href="https://apps.microsoft.com/search/publisher?name=Harshvardhan+Pankajbhai+Rathod&amp;hl=en-GB&amp;gl=IN" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="6.5" height="6.5" fill="currentColor"/><rect x="8.5" y="1" width="6.5" height="6.5" fill="currentColor"/><rect x="1" y="8.5" width="6.5" height="6.5" fill="currentColor"/><rect x="8.5" y="8.5" width="6.5" height="6.5" fill="currentColor"/></svg><span data-gu='મફત મેળવો' class="cta-t">Get it free</span></a>
 </nav>
 
 <!-- HERO -->
@@ -639,9 +657,9 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
   <svg class="badge badge-r" viewBox="0 0 150 150" aria-hidden="true"><text><textPath href="#circ">ગુજરાતી · हिन्दी · मराठी · বাংলা · தமிழ் · </textPath></text></svg>
 
   <div class="wrap">
-    <div class="eyebrow in">Harshvardhan Rathod · Class 10 developer</div>
-    <h1 class="in d1">Type in English,<em id="heroEm">read it in yours.</em></h1>
-    <p class="lede in d2">I build free typing tools for five Indian languages, and apps that police stations use every day.</p>
+    <div data-gu='હર્ષવર્ધન રાઠોડ · ધોરણ 10 ના ડેવલપર' class="eyebrow in">Harshvardhan Rathod · Class 10 developer</div>
+    <h1 class="in d1"><span data-gu='અંગ્રેજીમાં લખો,'>Type in English,</span><em id="heroEm" data-gu='વાંચો તમારી ભાષામાં.'>read it in yours.</em></h1>
+    <p data-gu='હું પાંચ ભારતીય ભાષાઓ માટે મફત ટાઇપિંગ ટૂલ્સ બનાવું છું, અને એવી એપ્સ જે પોલીસ સ્ટેશન રોજ વાપરે છે.' class="lede in d2">I build free typing tools for five Indian languages, and apps that police stations use every day.</p>
     <div class="names in d3" aria-label="My name in the five languages my tools type">
       <div class="name-rot"><span class="nm" id="nmText" lang="gu">હર્ષવર્ધન રાઠોડ</span></div>
       <div class="name-tabs" id="nameTabs">
@@ -649,10 +667,10 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
       </div>
     </div>
     <div class="actions in d4">
-      <a class="cta" href="#typing">See my typing tools</a>
-      <a class="ghost" href="#apps">Explore my apps</a>
+      <a data-gu='મારાં ટાઇપિંગ ટૂલ્સ જુઓ' class="cta" href="#typing">See my typing tools</a>
+      <a data-gu='મારી એપ્સ જુઓ' class="ghost" href="#apps">Explore my apps</a>
     </div>
-    <div class="small-note in d4">Available for Windows · Microsoft Store</div>
+    <div data-gu='Windows માટે ઉપલબ્ધ · Microsoft Store' class="small-note in d4">Available for Windows · Microsoft Store</div>
   </div>
 
   <div class="ribbon" aria-hidden="true">
@@ -668,32 +686,32 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 
 <!-- DARK BAND -->
 <section class="band">
-  <span class="eyebrow">Made for people who write in Indian languages</span>
+  <span data-gu='ભારતીય ભાષાઓમાં લખનારા લોકો માટે' class="eyebrow">Made for people who write in Indian languages</span>
   <div class="marq"><div class="logos">
-    <span><i>ગુ</i>Offices</span><span><i>हि</i>Courts</span><span><i>म</i>Lawyers</span><span><i>বা</i>Students</span><span><i>த</i>Typists</span><span><i>ગુ</i>Police stations</span><span><i>हि</i>Teachers</span>
-    <span><i>ગુ</i>Offices</span><span><i>हि</i>Courts</span><span><i>म</i>Lawyers</span><span><i>বা</i>Students</span><span><i>த</i>Typists</span><span><i>ગુ</i>Police stations</span><span><i>हि</i>Teachers</span>
+    <span data-gu='<i>ગુ</i>કચેરીઓ'><i>ગુ</i>Offices</span><span data-gu='<i>हि</i>કોર્ટ'><i>हि</i>Courts</span><span data-gu='<i>म</i>વકીલો'><i>म</i>Lawyers</span><span data-gu='<i>বা</i>વિદ્યાર્થીઓ'><i>বা</i>Students</span><span data-gu='<i>த</i>ટાઇપિસ્ટ'><i>த</i>Typists</span><span data-gu='<i>ગુ</i>પોલીસ સ્ટેશન'><i>ગુ</i>Police stations</span><span data-gu='<i>हि</i>શિક્ષકો'><i>हि</i>Teachers</span>
+    <span data-gu='<i>ગુ</i>કચેરીઓ'><i>ગુ</i>Offices</span><span data-gu='<i>हि</i>કોર્ટ'><i>हि</i>Courts</span><span data-gu='<i>म</i>વકીલો'><i>म</i>Lawyers</span><span data-gu='<i>বা</i>વિદ્યાર્થીઓ'><i>বা</i>Students</span><span data-gu='<i>த</i>ટાઇપિસ્ટ'><i>த</i>Typists</span><span data-gu='<i>ગુ</i>પોલીસ સ્ટેશન'><i>ગુ</i>Police stations</span><span data-gu='<i>हि</i>શિક્ષકો'><i>हि</i>Teachers</span>
   </div></div>
 </section>
 
 <!-- GREEN: TYPING TOOLS -->
 <section class="green" id="typing">
   <div class="wrap">
-    <h2 class="rv">Five languages, <em>one keyboard</em></h2>
-    <p class="sub rv">Type the sound, pick the word. Phonetic and typewriter modes, shortcuts and auto-backup, all free.</p>
+    <h2 data-gu='પાંચ ભાષાઓ, <em>એક જ કીબોર્ડ</em>' class="rv">Five languages, <em>one keyboard</em></h2>
+    <p data-gu='ઉચ્ચાર પ્રમાણે લખો, શબ્દ પસંદ કરો. ફોનેટિક અને ટાઇપરાઇટર મોડ, શોર્ટકટ અને ઓટો-બેકઅપ, બધું મફત.' class="sub rv">Type the sound, pick the word. Phonetic and typewriter modes, shortcuts and auto-backup, all free.</p>
 
     <div class="speed rv">
       <div class="card before">
-        <div class="lbl">Hunting for keys</div>
-        <div class="big">Slow</div>
+        <div data-gu='કી શોધતાં શોધતાં' class="lbl">Hunting for keys</div>
+        <div data-gu='ધીમું' class="big">Slow</div>
         <div class="hunt" aria-hidden="true">
-          <div class="h-out"><span id="hOut">ક</span><span class="h-caret"></span><span class="h-err" id="hErr">Wrong letter</span></div>
+          <div class="h-out"><span id="hOut">ક</span><span class="h-caret"></span><span data-gu='ખોટો અક્ષર' class="h-err" id="hErr">Wrong letter</span></div>
           <div class="kb" id="kb"></div>
           <div class="h-meta"><span>⏱ <b id="hTime">00:00</b></span><span class="h-wpm"><i id="hBar"></i></span><span><b>8</b> wpm</span></div>
         </div>
       </div>
       <div class="card after">
-        <div class="lbl">With my typing tool</div>
-        <div class="big">Just type</div>
+        <div data-gu='મારા ટાઇપિંગ ટૂલ સાથે' class="lbl">With my typing tool</div>
+        <div data-gu='બસ લખો' class="big">Just type</div>
         <div style="display:grid;place-items:center;margin-top:28px;gap:14px">
           <div class="sp-lang" id="spL">Gujarati</div>
           <div style="font-family:var(--mono);color:#C9D8D1;font-size:15px;min-height:1.5em" id="spK">maru naam harsh chhe<span class="caret"></span></div>
@@ -703,17 +721,17 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
     </div>
 
     <div class="store rv">
-      <a class="lang" href="https://apps.microsoft.com/detail/9PFTFLHHV8P0" target="_blank" rel="noopener"><span class="sc" style="font-family:'Noto Sans Gujarati'">ગુ</span><span class="ln">Gujarati</span><span class="gt">Get it ↗</span></a>
-      <a class="lang" href="https://apps.microsoft.com/search?query=Hindi+Typing+Tool" target="_blank" rel="noopener"><span class="sc" style="font-family:'Noto Sans Devanagari'">हि</span><span class="ln">Hindi</span><span class="gt">Get it ↗</span></a>
-      <a class="lang" href="https://apps.microsoft.com/search?query=Marathi+Typing+Tool" target="_blank" rel="noopener"><span class="sc" style="font-family:'Noto Sans Devanagari'">म</span><span class="ln">Marathi</span><span class="gt">Get it ↗</span></a>
-      <a class="lang" href="https://apps.microsoft.com/search?query=Bengali+Typing+Tool" target="_blank" rel="noopener"><span class="sc" style="font-family:'Noto Sans Bengali'">বা</span><span class="ln">Bengali</span><span class="gt">Get it ↗</span></a>
-      <a class="lang" href="https://apps.microsoft.com/search?query=Tamil+Typing+Tool" target="_blank" rel="noopener"><span class="sc" style="font-family:'Noto Sans Tamil'">த</span><span class="ln">Tamil</span><span class="gt">Get it ↗</span></a>
+      <a class="lang" href="https://apps.microsoft.com/detail/9pftflhhv8p0?hl=en-GB&amp;gl=IN" target="_blank" rel="noopener"><span class="sc" style="font-family:'Noto Sans Gujarati'">ગુ</span><span data-gu='ગુજરાતી' class="ln">Gujarati</span><span data-gu='મેળવો ↗' class="gt">Get it ↗</span></a>
+      <a class="lang" href="https://apps.microsoft.com/detail/9p80l5hw8djf?hl=en-GB&amp;gl=IN" target="_blank" rel="noopener"><span class="sc" style="font-family:'Noto Sans Devanagari'">हि</span><span data-gu='હિન્દી' class="ln">Hindi</span><span data-gu='મેળવો ↗' class="gt">Get it ↗</span></a>
+      <a class="lang" href="https://apps.microsoft.com/detail/9mt357fnt0bc?hl=en-GB&amp;gl=IN" target="_blank" rel="noopener"><span class="sc" style="font-family:'Noto Sans Devanagari'">म</span><span data-gu='મરાઠી' class="ln">Marathi</span><span data-gu='મેળવો ↗' class="gt">Get it ↗</span></a>
+      <a class="lang" href="https://apps.microsoft.com/detail/9p099vw417xk?hl=en-GB&amp;gl=IN" target="_blank" rel="noopener"><span class="sc" style="font-family:'Noto Sans Bengali'">বা</span><span data-gu='બંગાળી' class="ln">Bengali</span><span data-gu='મેળવો ↗' class="gt">Get it ↗</span></a>
+      <a class="lang" href="https://apps.microsoft.com/detail/9p4r8w5v83z7?hl=en-GB&amp;gl=IN" target="_blank" rel="noopener"><span class="sc" style="font-family:'Noto Sans Tamil'">த</span><span data-gu='તમિલ' class="ln">Tamil</span><span data-gu='મેળવો ↗' class="gt">Get it ↗</span></a>
     </div>
 
     <div class="stats rv">
-      <div><b data-n="5">5</b><small>languages on the Store</small></div>
-      <div><b data-n="9">9</b><small>apps built</small></div>
-      <div><b>₹0</b><small>to download</small></div>
+      <div><b data-n="5">5</b><small data-gu='ભાષાઓ Store પર'>languages on the Store</small></div>
+      <div><b data-n="9">9</b><small data-gu='એપ્સ બનાવી'>apps built</small></div>
+      <div><b>₹0</b><small data-gu='ડાઉનલોડ કરવા'>to download</small></div>
     </div>
   </div>
 </section>
@@ -722,7 +740,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 <section class="cream-ch" id="apps">
   <div class="story" id="story">
     <div class="pin wrap">
-      <div class="pin-head"><div class="eyebrow">More of my work</div></div>
+      <div class="pin-head"><div data-gu='મારું બીજું કામ' class="eyebrow">More of my work</div></div>
       <ol class="steps" id="steps">
         <li><button type="button" class="on" data-i="0">Nokri Book</button></li>
         <li><button type="button" data-i="1">Crime Record</button></li>
@@ -800,14 +818,14 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
       </div>
 
       <div class="texts">
-        <div class="txt on" data-i="0"><span class="st live">Live</span><h3>Nokri Book</h3><div class="k">Police duty roster</div><p>Duty rosters for police stations. Staff see their duty on the phone, and the district admin sees every station.</p><a class="ghost" href="https://nokribook.in" target="_blank" rel="noopener">Open nokribook.in ↗</a></div>
-        <div class="txt" data-i="1"><span class="st wip">Building</span><h3>Crime Record</h3><div class="k">ક્રાઈમ રેકોર્ડ એપ</div><p>Follows every crime from FIR to court verdict. Works offline and fully in Gujarati.</p></div>
-        <div class="txt" data-i="2"><span class="st wip">Building</span><h3>Crime Review</h3><div class="k">Monthly crime review</div><p>Each month's figures next to last year's, with pending cases. Everything stays on the device.</p></div>
-        <div class="txt" data-i="3"><span class="st wip">Store review</span><h3>Quick Finds</h3><div class="k">Windows utility</div><p>Find any file on your Windows PC in a moment.</p></div>
+        <div class="txt on" data-i="0"><span data-gu='ચાલુ' class="st live">Live</span><h3>Nokri Book</h3><div data-gu='પોલીસ ડ્યુટી રોસ્ટર' class="k">Police duty roster</div><p data-gu='પોલીસ સ્ટેશન માટે ડ્યુટી રોસ્ટર. સ્ટાફ પોતાની ડ્યુટી ફોન પર જુએ છે, અને જિલ્લા એડમિન દરેક સ્ટેશન જુએ છે.'>Duty rosters for police stations. Staff see their duty on the phone, and the district admin sees every station.</p><a data-gu='nokribook.in ખોલો ↗' class="ghost" href="https://nokribook.in" target="_blank" rel="noopener">Open nokribook.in ↗</a></div>
+        <div class="txt" data-i="1"><span data-gu='બની રહી છે' class="st wip">Building</span><h3>Crime Record</h3><div class="k">ક્રાઈમ રેકોર્ડ એપ</div><p data-gu='દરેક ગુનાને FIR થી કોર્ટના ચુકાદા સુધી અનુસરે છે. ઓફલાઇન ચાલે છે અને પૂરેપૂરી ગુજરાતીમાં છે.'>Follows every crime from FIR to court verdict. Works offline and fully in Gujarati.</p></div>
+        <div class="txt" data-i="2"><span data-gu='બની રહી છે' class="st wip">Building</span><h3>Crime Review</h3><div data-gu='માસિક ગુના સમીક્ષા' class="k">Monthly crime review</div><p data-gu='દર મહિનાના આંકડા ગયા વર્ષની બાજુમાં, બાકી કેસ સાથે. બધું ડિવાઇસ પર જ રહે છે.'>Each month's figures next to last year's, with pending cases. Everything stays on the device.</p></div>
+        <div class="txt" data-i="3"><span data-gu='Store રિવ્યૂમાં' class="st wip">Store review</span><h3>Quick Finds</h3><div data-gu='Windows ટૂલ' class="k">Windows utility</div><p data-gu='તમારા Windows PC પર એપ્સ, ફાઇલો, સેટિંગ્સ અને ખુલ્લી વિન્ડો પળમાં શોધો. ઝડપી ગણતરી અને એકમ રૂપાંતર પણ કરે છે.'>Find apps, files, settings and open windows on your Windows PC in a moment. It also does quick maths and unit conversions.</p></div>
       </div>
       <div class="swipe-wrap" style="grid-column:1/-1">
         <div class="swipe-ui"><button type="button" id="sPrev" aria-label="Previous app">←</button><div class="pdots" id="pdots"><i class="on"></i><i></i><i></i><i></i></div><button type="button" id="sNext" aria-label="Next app">→</button></div>
-        <div class="swipe-hint">Swipe left, right, up or down</div>
+        <div data-gu='ડાબે, જમણે, ઉપર કે નીચે સ્વાઇપ કરો' class="swipe-hint">Swipe left, right, up or down</div>
       </div>
     </div>
   </div>
@@ -816,16 +834,16 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 <!-- NIGHT: SCATTERED CARDS -->
 <section class="night" id="features">
   <div class="wrap">
-    <div class="eyebrow rv" style="text-align:center;display:block;color:#8C887C">Small details, big difference</div>
-    <h2 class="rv" style="margin-top:14px">Built the way <em>people actually type</em></h2>
-    <p class="sub rv">Everything in my typing tools came from watching how offices and students write every day.</p>
+    <div data-gu='નાની વિગતો, મોટો ફરક' class="eyebrow rv" style="text-align:center;display:block;color:#8C887C">Small details, big difference</div>
+    <h2 data-gu='<em>લોકો ખરેખર જેમ લખે છે</em> તેમ બનાવેલું' class="rv" style="margin-top:14px">Built the way <em>people actually type</em></h2>
+    <p data-gu='મારાં ટાઇપિંગ ટૂલ્સની દરેક વસ્તુ કચેરીઓ અને વિદ્યાર્થીઓ રોજ કેવી રીતે લખે છે તે જોઈને બની છે.' class="sub rv">Everything in my typing tools came from watching how offices and students write every day.</p>
     <div class="scatter" id="scatter">
-      <div class="qc l" style="left:2%;top:40px;--r:-4deg" data-s=".18"><div class="q">Type <em>kem chho</em>, get <span class="ind">કેમ છો</span>.</div><div class="who"><i>1</i>Phonetic typing</div></div>
-      <div class="qc m" style="left:38%;top:0;--r:3deg" data-s="-.12"><div class="q">The everyday word <em>always</em> comes first in the list.</div><div class="who"><i>2</i>Smart suggestions</div></div>
-      <div class="qc o" style="right:1%;top:90px;--r:-2deg" data-s=".26"><div class="q">Short codes turn into a full line or a whole signature block.</div><div class="who"><i>3</i>Shortcuts</div></div>
-      <div class="qc c" style="left:8%;top:430px;--r:3deg" data-s="-.2"><div class="q">Learned the <span class="ind tw" id="twName">બકમ</span> layout? <em>It's built in.</em></div><div class="who"><i>4</i>Typewriter mode · <span id="twLang">Gujarati</span></div></div>
-      <div class="qc y" style="left:42%;top:380px;--r:-3deg" data-s=".14"><div class="q"><kbd>Ctrl</kbd> + <kbd>Space</kbd> jumps between languages.</div><div class="who"><i>5</i>Many languages, one PC</div></div>
-      <div class="qc g" style="right:4%;top:500px;--r:4deg" data-s="-.16"><div class="q">Your words and shortcuts back up <em>on their own</em>.</div><div class="who"><i>6</i>Auto-backup</div></div>
+      <div class="qc l" style="left:2%;top:40px;--r:-4deg" data-s=".18"><div data-gu='<em>kem chho</em> લખો, <span class="ind">કેમ છો</span> મેળવો.' class="q">Type <em>kem chho</em>, get <span class="ind">કેમ છો</span>.</div><div data-gu='<i>1</i>ફોનેટિક ટાઇપિંગ' class="who"><i>1</i>Phonetic typing</div></div>
+      <div class="qc m" style="left:38%;top:0;--r:3deg" data-s="-.12"><div data-gu='રોજિંદો શબ્દ યાદીમાં <em>હંમેશા</em> પહેલો આવે છે.' class="q">The everyday word <em>always</em> comes first in the list.</div><div data-gu='<i>2</i>સ્માર્ટ સૂચનો' class="who"><i>2</i>Smart suggestions</div></div>
+      <div class="qc o" style="right:1%;top:90px;--r:-2deg" data-s=".26"><div data-gu='ટૂંકા કોડ આખી લાઇન કે આખો સહી-બ્લોક બની જાય છે.' class="q">Short codes turn into a full line or a whole signature block.</div><div data-gu='<i>3</i>શોર્ટકટ' class="who"><i>3</i>Shortcuts</div></div>
+      <div class="qc c" style="left:8%;top:430px;--r:3deg" data-s="-.2"><div class="q"><span data-gu=''>Learned the </span><span class="ind tw" id="twName">બકમ</span><span data-gu=' લેઆઉટ શીખ્યા છો?'> layout?</span> <em data-gu='તે અંદર જ છે.'>It's built in.</em></div><div class="who"><i>4</i><span data-gu='ટાઇપરાઇટર મોડ ·'>Typewriter mode ·</span> <span id="twLang">Gujarati</span></div></div>
+      <div class="qc y" style="left:42%;top:380px;--r:-3deg" data-s=".14"><div data-gu='<kbd>Ctrl</kbd> + <kbd>Space</kbd> થી ભાષા બદલાય છે.' class="q"><kbd>Ctrl</kbd> + <kbd>Space</kbd> jumps between languages.</div><div data-gu='<i>5</i>ઘણી ભાષાઓ, એક PC' class="who"><i>5</i>Many languages, one PC</div></div>
+      <div class="qc g" style="right:4%;top:500px;--r:4deg" data-s="-.16"><div data-gu='તમારા શબ્દો અને શોર્ટકટનું બેકઅપ <em>આપમેળે</em> થાય છે.' class="q">Your words and shortcuts back up <em>on their own</em>.</div><div data-gu='<i>6</i>ઓટો-બેકઅપ' class="who"><i>6</i>Auto-backup</div></div>
     </div>
   </div>
 </section>
@@ -835,29 +853,29 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
   <div class="wrap">
     <div class="about">
       <div class="rv">
-        <div class="eyebrow">About me</div>
-        <h2 style="margin-top:14px">A student who <em>ships real software</em></h2>
-        <p>I'm Harshvardhan, a Class 10 student. I design, build, test and publish my own apps: Windows tools on the Microsoft Store, web apps and an Android app.</p>
+        <div data-gu='મારા વિશે' class="eyebrow">About me</div>
+        <h2 data-gu='એક વિદ્યાર્થી જે <em>સાચું સોફ્ટવેર બનાવે છે</em>' style="margin-top:14px">A student who <em>ships real software</em></h2>
+        <p data-gu='હું હર્ષવર્ધન, ધોરણ 10 નો વિદ્યાર્થી છું. હું મારી એપ્સ જાતે ડિઝાઇન કરું છું, બનાવું છું, ચકાસું છું અને પ્રકાશિત કરું છું: Microsoft Store પર Windows ટૂલ્સ, વેબ એપ્સ અને એક Android એપ.'>I'm Harshvardhan, a Class 10 student. I design, build, test and publish my own apps: Windows tools on the Microsoft Store, web apps and an Android app.</p>
       </div>
       <div class="facts rv">
-        <div class="fact"><span class="ic" style="background:var(--lilac);color:var(--lilac-ink)">✎</span><div><b>Class 10 student</b><span>Building apps alongside school</span></div></div>
-        <div class="fact"><span class="ic" style="background:#D7F2E3;color:#13643E">ગુ</span><div><b>5 typing tools on the Store</b><span>Gujarati, Hindi, Marathi, Bengali, Tamil</span></div></div>
-        <div class="fact"><span class="ic" style="background:#FBE7C2;color:#7A4E00">★</span><div><b>Apps for police stations</b><span>Duty rosters, crime records, reviews</span></div></div>
+        <div class="fact"><span class="ic" style="background:var(--lilac);color:var(--lilac-ink)">✎</span><div><b data-gu='ધોરણ 10 નો વિદ્યાર્થી'>Class 10 student</b><span data-gu='શાળાની સાથે એપ્સ બનાવું છું'>Building apps alongside school</span></div></div>
+        <div class="fact"><span class="ic" style="background:#D7F2E3;color:#13643E">ગુ</span><div><b data-gu='Store પર 5 ટાઇપિંગ ટૂલ્સ'>5 typing tools on the Store</b><span data-gu='ગુજરાતી, હિન્દી, મરાઠી, બંગાળી, તમિલ'>Gujarati, Hindi, Marathi, Bengali, Tamil</span></div></div>
+        <div class="fact"><span class="ic" style="background:#FBE7C2;color:#7A4E00">★</span><div><b data-gu='પોલીસ સ્ટેશન માટે એપ્સ'>Apps for police stations</b><span data-gu='ડ્યુટી રોસ્ટર, ગુના રેકોર્ડ, સમીક્ષા'>Duty rosters, crime records, reviews</span></div></div>
       </div>
     </div>
 
     <div class="contact rv" id="contact">
-      <h2>Let's <em>talk.</em></h2>
+      <h2 data-gu='ચાલો <em>વાત કરીએ.</em>'>Let's <em>talk.</em></h2>
       <div class="mail">
         <a href="mailto:rpm499@gmail.com">rpm499@gmail.com</a>
-        <button type="button" id="copyBtn">Copy email</button>
+        <button data-gu='ઈમેલ કૉપિ કરો' type="button" id="copyBtn">Copy email</button>
         <span class="copy-msg" id="copyMsg" role="status"></span>
       </div>
     </div>
 
     <footer>
       <div class="mark" aria-label="Harshvardhan"><span class="bars"><i></i><i></i><i></i><i></i></span><span class="txtm">Harshvardhan</span></div>
-      <div class="foot"><span>© 2026 Harshvardhan Rathod</span><span>Made in Gujarat, for every Indian language</span></div>
+      <div class="foot"><span data-gu='© 2026 હર્ષવર્ધન રાઠોડ'>© 2026 Harshvardhan Rathod</span><span data-gu='ગુજરાતમાં બનાવેલું, દરેક ભારતીય ભાષા માટે'>Made in Gujarat, for every Indian language</span></div>
     </footer>
   </div>
 </section>
@@ -883,9 +901,12 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 
   /* capsule demo */
   var caps=[["Gujarati","kem chho","કેમ છો"],["Hindi","namaste","नमस्ते"],["Marathi","kasa aahes","कसा आहेस"],["Bengali","bhalo achhi","ভালো আছি"],["Tamil","vanakkam","வணக்கம்"]];
+  var LG={Gujarati:"ગુજરાતી",Hindi:"હિન્દી",Marathi:"મરાઠી",Bengali:"બંગાળી",Tamil:"તમિલ"}, GU=false;
+  function L(n){ return GU ? (LG[n]||n) : n; }
+  function setName(el,n){ el.dataset.n=n; el.textContent=L(n); }
   var cT=document.getElementById("capTag"), cK=document.getElementById("capK"), cG=document.getElementById("capG");
   async function capLoop(){ var i=0; await wait(2200);
-    while(true){ i=(i+1)%caps.length; var c=caps[i]; cT.textContent=c[0]; cG.textContent=""; cK.textContent="";
+    while(true){ i=(i+1)%caps.length; var c=caps[i]; setName(cT,c[0]); cG.textContent=""; cK.textContent="";
       for(var k=1;k<=c[1].length;k++){ cK.textContent=c[1].slice(0,k); await wait(95); }
       await wait(350); cG.textContent=c[2]; await wait(2300); } }
   if(!reduce) capLoop();
@@ -896,7 +917,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
   function setK(t){ spK.innerHTML=""; spK.appendChild(document.createTextNode(t)); var c=document.createElement("span"); c.className="caret"; spK.appendChild(c); }
   async function spLoop(){ var i=0; await wait(3200);
     while(true){ i=(i+1)%sents.length; var s=sents[i], lat=s[2].split(" "), out=s[3].split(" ");
-      spL.textContent=s[0]; spG.lang=s[1];
+      setName(spL,s[0]); spG.lang=s[1];
       var typed="", spans=[];
       spG.innerHTML=""; out.forEach(function(o){ var sp=document.createElement("span"); sp.className="dim"; sp.textContent=o; spG.appendChild(sp); spans.push(sp); });
       setK("");
@@ -1049,7 +1070,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
   var tws=[["બકમ","Gujarati",0],["हिंदी टाइपराइटर","Hindi",0],["मराठी टायपरायटर","Marathi",0],["বাংলা টাইপরাইটার","Bengali",0],["Tamil 99","Tamil",1]];
   var twN=document.getElementById("twName"), twL=document.getElementById("twLang"), twi=0;
   if(!reduce) setInterval(function(){ twi=(twi+1)%tws.length; twN.classList.add("swap");
-    setTimeout(function(){ var t=tws[twi]; twN.textContent=t[0]; twN.classList.toggle("lat",!!t[2]); twL.textContent=t[1]; twN.classList.remove("swap"); },250); },2200);
+    setTimeout(function(){ var t=tws[twi]; twN.textContent=t[0]; twN.classList.toggle("lat",!!t[2]); setName(twL,t[1]); twN.classList.remove("swap"); },250); },2200);
 
 
   /* nav name: letters animate in, cycling through scripts */
@@ -1085,8 +1106,25 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 
   /* copy email */
   document.getElementById("copyBtn").addEventListener("click",function(){ var msg=document.getElementById("copyMsg");
-    try{ navigator.clipboard.writeText("rpm499@gmail.com").then(function(){ msg.textContent="Email copied"; },function(){ msg.textContent="Select the address to copy it"; }); }
-    catch(e){ msg.textContent="Select the address to copy it"; } });
+    try{ navigator.clipboard.writeText("rpm499@gmail.com").then(function(){ msg.textContent=GU?"ઈમેલ કૉપિ થયો":"Email copied"; },function(){ msg.textContent=GU?"કૉપિ કરવા સરનામું પસંદ કરો":"Select the address to copy it"; }); }
+    catch(e){ msg.textContent=GU?"કૉપિ કરવા સરનામું પસંદ કરો":"Select the address to copy it"; } });
+
+  /* Gujarati / English switch (remembered on this device) */
+  var tEls=[].slice.call(document.querySelectorAll("[data-gu]")), langBtn=document.getElementById("langBtn");
+  tEls.forEach(function(el){ el.dataset.en=el.innerHTML; });
+  function setLang(g){
+    GU=g; document.documentElement.lang=g?"gu":"en";
+    tEls.forEach(function(el){ el.innerHTML=g?el.dataset.gu:el.dataset.en; });
+    [cT,spL,twL].forEach(function(el){ el.textContent=L(el.dataset.n||el.textContent); });
+    langBtn.textContent=g?"EN":"ગુ"; langBtn.lang=g?"en":"gu";
+    langBtn.setAttribute("aria-label",g?"Switch to English":"ગુજરાતીમાં જુઓ");
+    document.title=g?"હર્ષવર્ધન રાઠોડ — પોર્ટફોલિયો":"Harshvardhan Rathod — Portfolio";
+    try{ localStorage.setItem("dev_lang",g?"gu":"en"); }catch(e){}
+  }
+  langBtn.addEventListener("click",function(){ setLang(!GU); });
+  var startGu=false; try{ startGu=localStorage.getItem("dev_lang")==="gu"; }catch(e){}
+  if(/[?&]lang=gu\b/.test(location.search)) startGu=true;
+  if(startGu) setLang(true);
 })();
 </script>
 </body>
