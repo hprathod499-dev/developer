@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Harshvardhan Rathod — Portfolio</title>
-<meta name="description" content="Harshvardhan Rathod builds free typing tools for Gujarati, Hindi, Marathi, Bengali and Tamil on the Microsoft Store, and Nokri Book, a duty roster app for police stations.">
+<meta name="description" content="Harshvardhan Rathod builds free typing tools for Gujarati, Hindi, Marathi, Bengali and Tamil on the Microsoft Store, and handy tools for Windows.">
 <link rel="canonical" href="https://developer.nokribook.in/">
 <meta name="theme-color" content="#0A0C1B">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Harshvardhan Rathod">
 <meta property="og:title" content="Harshvardhan Rathod — typing tools and apps">
-<meta property="og:description" content="Free typing tools for five Indian languages, and apps police stations use every day.">
+<meta property="og:description" content="Free typing tools for five Indian languages, and handy tools for Windows.">
 <meta property="og:url" content="https://developer.nokribook.in/">
 <meta property="og:image" content="https://developer.nokribook.in/og.png">
 <meta property="og:image:width" content="1200">
@@ -20,9 +20,9 @@
 <meta property="og:image:alt" content="Harshvardhan Rathod — Type in English, read it in yours.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Harshvardhan Rathod — typing tools and apps">
-<meta name="twitter:description" content="Free typing tools for five Indian languages, and apps police stations use every day.">
+<meta name="twitter:description" content="Free typing tools for five Indian languages, and handy tools for Windows.">
 <meta name="twitter:image" content="https://developer.nokribook.in/og.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Harshvardhan Rathod","url":"https://developer.nokribook.in/","jobTitle":"App developer","sameAs":["https://apps.microsoft.com/search/publisher?name=Harshvardhan+Pankajbhai+Rathod","https://nokribook.in"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Harshvardhan Rathod","url":"https://developer.nokribook.in/","jobTitle":"App developer","sameAs":["https://apps.microsoft.com/search/publisher?name=Harshvardhan+Pankajbhai+Rathod"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&family=Noto+Sans+Gujarati:wght@500;700&display=swap" rel="stylesheet">
@@ -471,8 +471,6 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 .scard .ms{width:18px;height:18px}
 .m3{--p:#B3261E;--onp:#fff;--pc:#FFDAD6;--onpc:#410002;--sf:#FFF8F6;--sc:#FCEAE7;--sch:#F6E1DD;--on:#231918;--onv:#534341;--ol:#D8C2BF;
   background:var(--sf);color:var(--on);font-family:"Figtree","Noto Sans Gujarati",system-ui,sans-serif;font-size:12px}
-.t-nokri{--p:#C2410C;--pc:#FFDBCB;--onpc:#3A0B00;--sf:#FFF8F5;--sc:#FCEDE6;--sch:#F5E2D9;--on:#221A15;--onv:#53443C;--ol:#D9C2B8}
-.t-crime{--p:#8C5000;--pc:#FFDDB6;--onpc:#2D1600;--sf:#FFF8F4;--sc:#F9EDE2;--sch:#F2E3D6;--on:#201A14;--onv:#504539;--ol:#D5C4B5}
 .t-review{--p:#6A3FC8;--pc:#E9DDFF;--onpc:#22005D;--sf:#FDF7FF;--sc:#F2ECF7;--sch:#ECE5F2;--on:#1D1B20;--onv:#49454F;--ol:#CBC4D0}
 .t-find{--p:#006A60;--pc:#9EF2E4;--onpc:#00201C;--sf:#F4FBF8;--sc:#E9EFEC;--sch:#E3EAE7;--on:#161D1B;--onv:#3F4946;--ol:#BEC9C5}
 .dev.m3{border:0;padding:0;display:flex;flex-direction:column}
@@ -513,7 +511,6 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 .navbar .on i{background:var(--pc);color:var(--onpc)}
 
 /* desktop: navigation rail */
-.t-crime{flex-direction:row!important}
 .rail{width:74px;flex:none;display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 0;background:var(--sc)}
 .logo-dot{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--p);color:#fff;margin-bottom:6px}
 .r{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:9.5px;font-weight:500;color:var(--onv)}
@@ -635,6 +632,10 @@ html[lang="gu"] .lang-btn{font-family:var(--sans);font-size:13px}
 html[lang="gu"] .eyebrow,html[lang="gu"] .swipe-hint{letter-spacing:0;text-transform:none;font-family:var(--indic)}
 html[lang="gu"] .eyebrow{font-size:13px}
 .logo{min-width:0;overflow:hidden}
+/* one app in the viewer: no side list */
+.steps{display:none}
+.pin{grid-template-columns:1fr 300px}
+@media (max-width:900px){.pin{grid-template-columns:1fr}}
 @media (max-width:560px){.nav{gap:8px}.lang-btn{min-width:36px;padding:0 8px}}
 </style>
 </head>
@@ -659,7 +660,7 @@ html[lang="gu"] .eyebrow{font-size:13px}
   <div class="wrap">
     <div data-gu='હર્ષવર્ધન રાઠોડ · ધોરણ 10 ના ડેવલપર' class="eyebrow in">Harshvardhan Rathod · Class 10 developer</div>
     <h1 class="in d1"><span data-gu='અંગ્રેજીમાં લખો,'>Type in English,</span><em id="heroEm" data-gu='વાંચો તમારી ભાષામાં.'>read it in yours.</em></h1>
-    <p data-gu='હું પાંચ ભારતીય ભાષાઓ માટે મફત ટાઇપિંગ ટૂલ્સ બનાવું છું, અને એવી એપ્સ જે પોલીસ સ્ટેશન રોજ વાપરે છે.' class="lede in d2">I build free typing tools for five Indian languages, and apps that police stations use every day.</p>
+    <p data-gu='હું પાંચ ભારતીય ભાષાઓ માટે મફત ટાઇપિંગ ટૂલ્સ અને રોજ સમય બચાવે તેવાં Windows ટૂલ્સ બનાવું છું.' class="lede in d2">I build free typing tools for five Indian languages, and Windows tools that save time every day.</p>
     <div class="names in d3" aria-label="My name in the five languages my tools type">
       <div class="name-rot"><span class="nm" id="nmText" lang="gu">હર્ષવર્ધન રાઠોડ</span></div>
       <div class="name-tabs" id="nameTabs">
@@ -688,8 +689,8 @@ html[lang="gu"] .eyebrow{font-size:13px}
 <section class="band">
   <span data-gu='ભારતીય ભાષાઓમાં લખનારા લોકો માટે' class="eyebrow">Made for people who write in Indian languages</span>
   <div class="marq"><div class="logos">
-    <span data-gu='<i>ગુ</i>કચેરીઓ'><i>ગુ</i>Offices</span><span data-gu='<i>हि</i>કોર્ટ'><i>हि</i>Courts</span><span data-gu='<i>म</i>વકીલો'><i>म</i>Lawyers</span><span data-gu='<i>বা</i>વિદ્યાર્થીઓ'><i>বা</i>Students</span><span data-gu='<i>த</i>ટાઇપિસ્ટ'><i>த</i>Typists</span><span data-gu='<i>ગુ</i>પોલીસ સ્ટેશન'><i>ગુ</i>Police stations</span><span data-gu='<i>हि</i>શિક્ષકો'><i>हि</i>Teachers</span>
-    <span data-gu='<i>ગુ</i>કચેરીઓ'><i>ગુ</i>Offices</span><span data-gu='<i>हि</i>કોર્ટ'><i>हि</i>Courts</span><span data-gu='<i>म</i>વકીલો'><i>म</i>Lawyers</span><span data-gu='<i>বা</i>વિદ્યાર્થીઓ'><i>বা</i>Students</span><span data-gu='<i>த</i>ટાઇપિસ્ટ'><i>த</i>Typists</span><span data-gu='<i>ગુ</i>પોલીસ સ્ટેશન'><i>ગુ</i>Police stations</span><span data-gu='<i>हि</i>શિક્ષકો'><i>हि</i>Teachers</span>
+    <span data-gu='<i>ગુ</i>કચેરીઓ'><i>ગુ</i>Offices</span><span data-gu='<i>हि</i>કોર્ટ'><i>हि</i>Courts</span><span data-gu='<i>म</i>વકીલો'><i>म</i>Lawyers</span><span data-gu='<i>বা</i>વિદ્યાર્થીઓ'><i>বা</i>Students</span><span data-gu='<i>த</i>ટાઇપિસ્ટ'><i>த</i>Typists</span><span data-gu='<i>ગુ</i>લેખકો'><i>ગુ</i>Writers</span><span data-gu='<i>हि</i>શિક્ષકો'><i>हि</i>Teachers</span>
+    <span data-gu='<i>ગુ</i>કચેરીઓ'><i>ગુ</i>Offices</span><span data-gu='<i>हि</i>કોર્ટ'><i>हि</i>Courts</span><span data-gu='<i>म</i>વકીલો'><i>म</i>Lawyers</span><span data-gu='<i>বা</i>વિદ્યાર્થીઓ'><i>বা</i>Students</span><span data-gu='<i>த</i>ટાઇપિસ્ટ'><i>த</i>Typists</span><span data-gu='<i>ગુ</i>લેખકો'><i>ગુ</i>Writers</span><span data-gu='<i>हि</i>શિક્ષકો'><i>हि</i>Teachers</span>
   </div></div>
 </section>
 
@@ -742,72 +743,12 @@ html[lang="gu"] .eyebrow{font-size:13px}
     <div class="pin wrap">
       <div class="pin-head"><div data-gu='મારું બીજું કામ' class="eyebrow">More of my work</div></div>
       <ol class="steps" id="steps">
-        <li><button type="button" class="on" data-i="0">Nokri Book</button></li>
-        <li><button type="button" data-i="1">Crime Record</button></li>
-        <li><button type="button" data-i="2">Crime Review</button></li>
-        <li><button type="button" data-i="3">Quick Finds</button></li>
+        <li><button type="button" class="on" data-i="0">Quick Finds</button></li>
       </ol>
 
       <div class="stage">
-        <!-- Nokri Book : Flutter Material 3 phone -->
-        <div class="dev phone on m3 t-nokri" data-i="0">
-          <div class="sbar"><span>9:41</span><span class="ms s"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="f" d="M4 18h3v3H4zM10 13h3v8h-3zM16 7h3v14h-3z"/></svg></span><span class="ms s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9a15 15 0 0 1 20 0M5 13a10 10 0 0 1 14 0M8.5 16.5a5 5 0 0 1 7 0"/><circle class="f" cx="12" cy="20" r="1.5"/></svg></span><span class="ms s"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="16" height="10" rx="2"/><path class="f" d="M5 9h12v6H5z"/><path d="M21 10v4"/></svg></span></div>
-          <div class="appbar"><div><small>શુક્રવાર, 20 નવે.</small><h4>આજની ડ્યુટી</h4></div><span class="avatar">HR</span></div>
-          <div class="seg3"><span class="on">આજે</span><span>કાલે</span><span>અઠવાડિયું</span></div>
-          <div class="hero-card ani" style="--d:0"><div><b data-to="24">24</b><small>ફરજ પર</small></div><div><b data-to="3">3</b><small>રજા</small></div><div><b data-to="5">5</b><small>ડ્યુટી</small></div></div>
-          <div class="tile ani" style="--d:1"><span class="lead c1">1</span><div class="tt"><b>PC · બક્કલ 101</b><small>112 · 08:00–20:00</small></div><span class="chip c1">112</span></div>
-          <div class="tile ani" style="--d:2"><span class="lead c2">2</span><div class="tt"><b>HC · બક્કલ 214</b><small>કોર્ટ મુદત</small></div><span class="chip c2">કેદી પાર્ટી</span></div>
-          <div class="tile ani" style="--d:3"><span class="lead c3">3</span><div class="tt"><b>LR · બક્કલ 087</b><small>મેળો</small></div><span class="chip c3">બંદોબસ્ત</span></div>
-          <div class="tile ani" style="--d:4"><span class="lead c4">4</span><div class="tt"><b>ASI · બક્કલ 033</b><small>SP કચેરી</small></div><span class="chip c4">ટપાલ</span></div>
-          <div class="fab"><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>ડ્યુટી</div>
-          <div class="navbar"><span class="on"><i><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M4 10h16M8 3v4M16 3v4"/></svg></span></i>રોસ્ટર</span><span><i><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9" r="3"/><circle cx="17" cy="10" r="2.3"/><path d="M3 19c0-3.2 2.7-5 6-5s6 1.8 6 5M15.5 14.6c2.7-.3 5.5 1 5.5 4.4"/></svg></span></i>સ્ટાફ</span><span><i><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7L4 8.5"/><path d="M4 4v4.5h4.5M12 8v4.5l3 2"/></svg></span></i>હિસ્ટ્રી</span></div>
-        </div>
-
-        <!-- Crime Record : Flutter desktop with NavigationRail -->
-        <div class="dev m3 t-crime" data-i="1">
-          <div class="rail">
-            <span class="logo-dot"><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-3 7.4-7 9-4-1.6-7-4.8-7-9V6z"/><path class="f" d="M12 8.5l1.1 2.2 2.4.3-1.8 1.6.5 2.4-2.2-1.2-2.2 1.2.5-2.4-1.8-1.6 2.4-.3z"/></svg></span></span>
-            <span class="r on"><i><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="5" rx="1.5"/><rect x="13" y="11" width="7" height="9" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/></svg></span></i>ડેશબોર્ડ</span>
-            <span class="r"><i><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 4l7 7M9 8l7 7M15 6l-6 6 3 3 6-6M10.5 13.5L4 20M4 21h9"/></svg></span></i>ગુનાઓ</span>
-            <span class="r"><i><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></span></i>B સ્ટેટ.</span>
-            <span class="r"><i><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6c3-1.3 6-1.3 9 .8 3-2.1 6-2.1 9-.8v13c-3-1.3-6-1.3-9 .8-3-2.1-6-2.1-9-.8z"/><path d="M12 7v13"/></svg></span></i>બુક</span>
-          </div>
-          <div class="main">
-            <div class="searchbar"><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></span><span class="ph">FIR નં., આરોપી, ગામ…</span><span class="avatar sm">HR</span></div>
-            <div class="stats3">
-              <div class="scard ani" style="--d:0"><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="16" rx="2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M8.5 12h7M8.5 16h5"/></svg></span><b data-to="148">148</b><small>દાખલ</small></div>
-              <div class="scard ok ani" style="--d:1"><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8 12.3l2.8 2.7L16 9.5"/></svg></span><b data-to="131">131</b><small>ડીટેક્ટ</small></div>
-              <div class="scard warn ani" style="--d:2"><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><b data-to="17">17</b><small>પેન્ડીંગ</small></div>
-            </div>
-            <div class="ltile ani" style="--d:3"><span class="sq"><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 4h17v4h-17zM5 8h14v12H5z"/><path d="M10 12h4"/></svg></span></span><div class="tt"><b>ભાગ-એ · ચોરી</b><small>FIR → ચાર્જશીટ → CC → ચુકાદો</small></div><span class="chip ok"><span class="ms s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>ડીટેક્ટ</span></div>
-            <div class="ltile ani" style="--d:4"><span class="sq warn"><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14l-7 8z"/><path d="M12 12v7M8 20h8"/></svg></span></span><div class="tt"><b>ભાગ-સી · પ્રોહિબિશન</b><small>ચાર્જશીટ બાકી · 42 દિવસ</small></div><span class="chip warn">પેન્ડીંગ</span></div>
-          </div>
-          <div class="fab sm"><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="f" d="M13.5 2L5 13.5h6L10 22l9-12h-6z"/></svg></span>ઝડપી અપડેટ</div>
-        </div>
-
-        <!-- Crime Review : Flutter chart screen -->
-        <div class="dev m3 t-review" data-i="2">
-          <div class="appbar"><div><small>Crime Review</small><h4>Monthly review</h4></div><span class="ibtn"><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg></span></span></div>
-          <div class="seg2"><span>2025</span><span class="on"><span class="ms s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>2026</span></div>
-          <div class="chart-card ani" style="--d:0">
-            <div class="cbars">
-              <div class="cb" style="--a:62%;--b:48%;--d:0"><i></i><i></i><span>Jun</span></div>
-              <div class="cb" style="--a:70%;--b:66%;--d:1"><i></i><i></i><span>Jul</span></div>
-              <div class="cb" style="--a:45%;--b:58%;--d:2"><i></i><i></i><span>Aug</span></div>
-              <div class="cb" style="--a:80%;--b:61%;--d:3"><i></i><i></i><span>Sep</span></div>
-              <div class="cb" style="--a:56%;--b:52%;--d:4"><i></i><i></i><span>Oct</span></div>
-              <div class="cb" style="--a:38%;--b:44%;--d:5"><i></i><i></i><span>Nov</span></div>
-            </div>
-            <div class="leg"><span class="a">This year</span><span class="b">Last year</span></div>
-          </div>
-          <div class="mini2">
-            <div class="mcard ani" style="--d:1"><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l6 6 4-4 8 8"/><path d="M15 17h6v-6"/></svg></span><div><b>−14%</b><small>vs Nov last year</small></div></div>
-            <div class="mcard ani" style="--d:2"><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10M7 21h10M8 3c0 5 8 5 8 9s-8 4-8 9M16 3c0 5-8 5-8 9s8 4 8 9"/></svg></span><div><b data-to="9">9</b><small>pending &gt; 90 days</small></div></div>
-          </div>
-        </div>
-
         <!-- Quick Finds : Flutter search screen -->
-        <div class="dev m3 t-find" data-i="3">
+        <div class="dev m3 t-find on" data-i="0">
           <div class="searchbar big"><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></span><span class="q" data-q="report 2026"></span><span class="caret"></span><span class="ms tr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg></span></div>
           <div class="fchips"><span class="on"><span class="ms s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>All</span><span>Documents</span><span>PDF</span><span>Excel</span><span>Folders</span></div>
           <div class="ltile sel ani" style="--d:0"><span class="sq q-blue"><span class="ms"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></svg></span></span><div class="tt"><b>Monthly report 2026.docx</b><small>Documents · 2 min ago</small></div><span class="tbtn">Open</span></div>
@@ -818,14 +759,7 @@ html[lang="gu"] .eyebrow{font-size:13px}
       </div>
 
       <div class="texts">
-        <div class="txt on" data-i="0"><span data-gu='ચાલુ' class="st live">Live</span><h3>Nokri Book</h3><div data-gu='પોલીસ ડ્યુટી રોસ્ટર' class="k">Police duty roster</div><p data-gu='પોલીસ સ્ટેશન માટે ડ્યુટી રોસ્ટર. સ્ટાફ પોતાની ડ્યુટી ફોન પર જુએ છે, અને જિલ્લા એડમિન દરેક સ્ટેશન જુએ છે.'>Duty rosters for police stations. Staff see their duty on the phone, and the district admin sees every station.</p><a data-gu='nokribook.in ખોલો ↗' class="ghost" href="https://nokribook.in" target="_blank" rel="noopener">Open nokribook.in ↗</a></div>
-        <div class="txt" data-i="1"><span data-gu='બની રહી છે' class="st wip">Building</span><h3>Crime Record</h3><div class="k">ક્રાઈમ રેકોર્ડ એપ</div><p data-gu='દરેક ગુનાને FIR થી કોર્ટના ચુકાદા સુધી અનુસરે છે. ઓફલાઇન ચાલે છે અને પૂરેપૂરી ગુજરાતીમાં છે.'>Follows every crime from FIR to court verdict. Works offline and fully in Gujarati.</p></div>
-        <div class="txt" data-i="2"><span data-gu='બની રહી છે' class="st wip">Building</span><h3>Crime Review</h3><div data-gu='માસિક ગુના સમીક્ષા' class="k">Monthly crime review</div><p data-gu='દર મહિનાના આંકડા ગયા વર્ષની બાજુમાં, બાકી કેસ સાથે. બધું ડિવાઇસ પર જ રહે છે.'>Each month's figures next to last year's, with pending cases. Everything stays on the device.</p></div>
-        <div class="txt" data-i="3"><span data-gu='Store રિવ્યૂમાં' class="st wip">Store review</span><h3>Quick Finds</h3><div data-gu='Windows ટૂલ' class="k">Windows utility</div><p data-gu='તમારા Windows PC પર એપ્સ, ફાઇલો, સેટિંગ્સ અને ખુલ્લી વિન્ડો પળમાં શોધો. ઝડપી ગણતરી અને એકમ રૂપાંતર પણ કરે છે.'>Find apps, files, settings and open windows on your Windows PC in a moment. It also does quick maths and unit conversions.</p></div>
-      </div>
-      <div class="swipe-wrap" style="grid-column:1/-1">
-        <div class="swipe-ui"><button type="button" id="sPrev" aria-label="Previous app">←</button><div class="pdots" id="pdots"><i class="on"></i><i></i><i></i><i></i></div><button type="button" id="sNext" aria-label="Next app">→</button></div>
-        <div data-gu='ડાબે, જમણે, ઉપર કે નીચે સ્વાઇપ કરો' class="swipe-hint">Swipe left, right, up or down</div>
+        <div class="txt on" data-i="0"><span data-gu='Store રિવ્યૂમાં' class="st wip">Store review</span><h3>Quick Finds</h3><div data-gu='Windows ટૂલ' class="k">Windows utility</div><p data-gu='તમારા Windows PC પર એપ્સ, ફાઇલો, સેટિંગ્સ અને ખુલ્લી વિન્ડો પળમાં શોધો. ઝડપી ગણતરી અને એકમ રૂપાંતર પણ કરે છે.'>Find apps, files, settings and open windows on your Windows PC in a moment. It also does quick maths and unit conversions.</p></div>
       </div>
     </div>
   </div>
@@ -860,7 +794,7 @@ html[lang="gu"] .eyebrow{font-size:13px}
       <div class="facts rv">
         <div class="fact"><span class="ic" style="background:var(--lilac);color:var(--lilac-ink)">✎</span><div><b data-gu='ધોરણ 10 નો વિદ્યાર્થી'>Class 10 student</b><span data-gu='શાળાની સાથે એપ્સ બનાવું છું'>Building apps alongside school</span></div></div>
         <div class="fact"><span class="ic" style="background:#D7F2E3;color:#13643E">ગુ</span><div><b data-gu='Store પર 5 ટાઇપિંગ ટૂલ્સ'>5 typing tools on the Store</b><span data-gu='ગુજરાતી, હિન્દી, મરાઠી, બંગાળી, તમિલ'>Gujarati, Hindi, Marathi, Bengali, Tamil</span></div></div>
-        <div class="fact"><span class="ic" style="background:#FBE7C2;color:#7A4E00">★</span><div><b data-gu='પોલીસ સ્ટેશન માટે એપ્સ'>Apps for police stations</b><span data-gu='ડ્યુટી રોસ્ટર, ગુના રેકોર્ડ, સમીક્ષા'>Duty rosters, crime records, reviews</span></div></div>
+        <div class="fact"><span class="ic" style="background:#FBE7C2;color:#7A4E00">★</span><div><b data-gu='Windows ટૂલ્સ'>Windows tools</b><span data-gu='Quick Finds, જલદી Store પર'>Quick Finds, coming to the Store</span></div></div>
       </div>
     </div>
 
@@ -972,8 +906,7 @@ html[lang="gu"] .eyebrow{font-size:13px}
   function next(dir){ setApp(cur+1,dir||"l"); }
   function prev(dir){ setApp(cur-1,dir||"r"); }
   steps.forEach(function(b){ b.addEventListener("click",function(){ var i=+b.dataset.i; setApp(i,i>cur?"l":"r"); }); });
-  document.getElementById("sNext").addEventListener("click",function(){ next("l"); });
-  document.getElementById("sPrev").addEventListener("click",function(){ prev("r"); });
+
 
   /* touch: left/right always; up/down change app, and pass to the page at the first/last app */
   var tx=0,ty=0,axis=null,touching=false;
