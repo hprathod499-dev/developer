@@ -621,6 +621,8 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 
 :root{--sans:"Figtree","Noto Sans Gujarati","Segoe UI",system-ui,sans-serif;--disp:"Bricolage Grotesque","Noto Sans Gujarati","Segoe UI",system-ui,sans-serif;--serif:"Instrument Serif","Noto Sans Gujarati","Times New Roman",serif}
 .logo{min-width:0;overflow:hidden}
+/* menu links are hidden on smaller screens: keep the Store button on the right */
+@media (max-width:900px){.nav>.cta{margin-left:auto}}
 /* one app in the viewer: no side list */
 .steps{display:none}
 .pin{grid-template-columns:1fr 300px}
