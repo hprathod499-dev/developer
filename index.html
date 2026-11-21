@@ -633,6 +633,8 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 .qf-bar b{width:44px;text-align:center;font:400 12px/32px var(--sans);color:#A6ACCB}
 .dev.qf-video video{display:block;width:100%;height:auto;aspect-ratio:1280/530;object-fit:cover;background:#202124}
 .stage:has(.qf-video){height:auto;min-height:0}
+/* welcome line: longer than the name was, so it scales with the screen and never wraps */
+.name-rot .nm{white-space:nowrap;font-size:clamp(19px,6vw,30px)}
 /* one app in the viewer: no side list */
 .steps{display:none}
 .pin{grid-template-columns:1fr 300px}
@@ -661,7 +663,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
     <h1 class="in d1"><span>Type in English,</span><em id="heroEm">read it in yours.</em></h1>
     <p class="lede in d2">I build free typing tools for five Indian languages, and Windows tools that save time every day.</p>
     <div class="names in d3" aria-label="My name in the five languages my tools type">
-      <div class="name-rot"><span class="nm" id="nmText" lang="gu">હર્ષવર્ધન રાઠોડ</span></div>
+      <div class="name-rot"><span class="nm" id="nmText" lang="gu">આપનું હૃદયપૂર્વક સ્વાગત છે</span></div>
       <div class="name-tabs" id="nameTabs">
         <button type="button" class="on" data-i="0" aria-label="Gujarati">ગુ</button><button type="button" data-i="1" aria-label="Hindi">हि</button><button type="button" data-i="2" aria-label="Marathi">म</button><button type="button" data-i="3" aria-label="Bengali">বা</button><button type="button" data-i="4" aria-label="Tamil">த</button>
       </div>
@@ -816,7 +818,8 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
   function wait(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
 
   /* name in five scripts */
-  var names=[["હર્ષવર્ધન રાઠોડ","gu"],["हर्षवर्धन राठौड़","hi"],["हर्षवर्धन राठोड","mr"],["হর্ষবর্ধন রাঠোড়","bn"],["ஹர்ஷவர்தன் ராத்தோட்","ta"]];
+  /* a heartfelt welcome, in each language */
+  var names=[["આપનું હૃદયપૂર્વક સ્વાગત છે","gu"],["आपका हार्दिक स्वागत है","hi"],["आपले मनःपूर्वक स्वागत आहे","mr"],["আপনাকে আন্তরিক স্বাগতম","bn"],["உங்களை அன்புடன் வரவேற்கிறோம்","ta"]];
   var nm=document.getElementById("nmText"), nTabs=document.getElementById("nameTabs"), ni=0, nT=null;
   function showName(i){ ni=i; nm.textContent=names[i][0]; nm.lang=names[i][1]; nm.classList.remove("flip"); void nm.offsetWidth; nm.classList.add("flip");
     [].forEach.call(nTabs.children,function(b,k){ b.classList.toggle("on",k===i); }); }
