@@ -639,6 +639,21 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 .steps{display:none}
 .pin{grid-template-columns:1fr 300px}
 @media (max-width:900px){.pin{grid-template-columns:1fr}}
+
+/* ================= scroll animations (look only; nothing else changes) =================
+   Uses the separate translate / scale properties, so it never fights a card's own transform or hover. */
+html.nb-anim .rv{animation:none!important}
+html.nb-anim [data-a]{opacity:0;transition:opacity .8s cubic-bezier(.2,.7,.2,1),translate .95s cubic-bezier(.16,.84,.24,1),scale .95s cubic-bezier(.16,.84,.24,1),filter .8s ease;transition-delay:var(--ad,0s)}
+html.nb-anim [data-a="up"]{translate:0 42px}
+html.nb-anim [data-a="left"]{translate:-46px 0}
+html.nb-anim [data-a="right"]{translate:46px 0}
+html.nb-anim [data-a="zoom"]{scale:.9;translate:0 30px}
+html.nb-anim [data-a="pop"]{scale:.86;filter:blur(6px)}
+html.nb-anim [data-a="fade"]{translate:0 0}
+html.nb-anim [data-a].is-in{opacity:1;translate:0 0;scale:1;filter:none}
+/* headings and lines that light up word by word as you scroll */
+html.nb-anim .lit .w{opacity:.2;transition:opacity .35s ease}
+html.nb-anim .lit .w.on{opacity:1}
 </style>
 </head>
 <body>
@@ -827,6 +842,48 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
   nTabs.addEventListener("click",function(e){ var b=e.target.closest("button"); if(b){ showName(+b.dataset.i); autoName(); } });
   autoName();
 
+
+  /* ===== scroll animations ===== */
+  (function(){
+    if(reduce || !("IntersectionObserver" in window)) return;
+    var root=document.documentElement; root.classList.add("nb-anim");
+    function mark(list,type,step,start){ [].forEach.call(list,function(el,i){ if(!el || el.hasAttribute("data-a")) return; el.setAttribute("data-a",type); el.style.setProperty("--ad",((start||0)+i*(step||0)).toFixed(2)+"s"); }); }
+    var q=function(sel){ return document.querySelectorAll(sel); };
+    mark(q("section:not(.hero) .eyebrow"),"fade");
+    mark(q("section:not(.hero) h2"),"up");
+    mark(q(".speed .card"),"up",.15);
+    mark(q(".store .lang"),"pop",.08,.05);
+    mark(q(".stats > div"),"up",.12);
+    mark(q("#apps .stage"),"zoom");
+    mark(q("#apps .texts"),"right",0,.15);
+    mark(q(".scatter .qc"),"pop",.1);
+    mark(q(".facts .fact"),"left",.12);
+    mark(q(".contact"),"zoom");
+    mark(q("footer .mark"),"up");
+    mark(q("footer .foot"),"fade",0,.2);
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting) return; var el=e.target; io.unobserve(el); el.classList.add("is-in");
+      // once it has arrived, hand the element back to its own styles (hover etc.)
+      var d=parseFloat(el.style.getPropertyValue("--ad"))||0; setTimeout(function(){ el.removeAttribute("data-a"); el.classList.remove("is-in"); el.style.removeProperty("--ad"); },(d+1.1)*1000); }); },
+      { rootMargin:"0px 0px -8% 0px", threshold:.12 });
+    [].forEach.call(q("[data-a]"),function(el){ io.observe(el); });
+    // at the very bottom of the page, show whatever is left (it may never cross the trigger line)
+    addEventListener("scroll",function(){ if(innerHeight+scrollY>=document.documentElement.scrollHeight-4){ [].forEach.call(q("[data-a]:not(.is-in)"),function(el){ io.unobserve(el); el.classList.add("is-in"); setTimeout(function(){ el.removeAttribute("data-a"); el.classList.remove("is-in"); el.style.removeProperty("--ad"); },1300); }); } },{passive:true});
+
+    /* lines that light up word by word while scrolling */
+    var lit=[].slice.call(q("#typing .sub, #features .sub, .about p"));
+    lit.forEach(function(p){ p.classList.add("lit");
+      var walk=document.createTreeWalker(p,NodeFilter.SHOW_TEXT,null), nodes=[], n; while((n=walk.nextNode())) nodes.push(n);
+      nodes.forEach(function(t){ var parts=t.nodeValue.split(/(\s+)/), f=document.createDocumentFragment();
+        parts.forEach(function(w){ if(!w) return; if(/^\s+$/.test(w)){ f.appendChild(document.createTextNode(w)); return; } var sp=document.createElement("span"); sp.className="w"; sp.textContent=w; f.appendChild(sp); });
+        t.parentNode.replaceChild(f,t); });
+      p._w=[].slice.call(p.querySelectorAll(".w")); });
+    var ticking=false;
+    function paint(){ ticking=false; var vh=innerHeight;
+      lit.forEach(function(p){ var r=p.getBoundingClientRect(); var prog=(vh*.9-r.top)/(vh*.45+r.height); prog=Math.max(0,Math.min(1,prog));
+        var k=Math.round(prog*p._w.length); p._w.forEach(function(w,i){ w.classList.toggle("on",i<k); }); }); }
+    addEventListener("scroll",function(){ if(!ticking){ ticking=true; requestAnimationFrame(paint); } },{passive:true});
+    addEventListener("resize",paint); paint();
+  })();
   /* ribbon flow */
   var rt=document.getElementById("ribbonText"), off=0;
   function flow(){ off-=0.6; if(off<-1900) off=0; rt.setAttribute("startOffset",off); requestAnimationFrame(flow); }
