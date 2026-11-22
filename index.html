@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&family=Noto+Sans+Gujarati:wght@500;700&display=swap" rel="stylesheet">
 <!-- Hindi, Marathi, Bengali and Tamil appear only in a few words here, so only those letters are downloaded -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@500;700&family=Noto+Sans+Bengali:wght@500;700&family=Noto+Sans+Tamil:wght@500;700&display=swap&text=%E0%A4%80%E0%A4%82%E0%A4%85%E0%A4%86%E0%A4%87%E0%A4%95%E0%A4%9D%E0%A4%9F%E0%A4%A0%E0%A4%A1%E0%A4%A4%E0%A4%A6%E0%A4%A7%E0%A4%A8%E0%A4%AA%E0%A4%AE%E0%A4%AF%E0%A4%B0%E0%A4%B5%E0%A4%B7%E0%A4%B8%E0%A4%B9%E0%A4%BC%E0%A4%BE%E0%A4%BF%E0%A5%80%E0%A5%87%E0%A5%88%E0%A5%8B%E0%A5%8C%E0%A5%8D%E0%A5%90%E0%A6%82%E0%A6%86%E0%A6%87%E0%A6%95%E0%A6%9B%E0%A6%9F%E0%A6%A0%E0%A6%A1%E0%A6%A7%E0%A6%A8%E0%A6%AA%E0%A6%AC%E0%A6%AD%E0%A6%AE%E0%A6%B0%E0%A6%B2%E0%A6%B7%E0%A6%B9%E0%A6%BC%E0%A6%BE%E0%A6%BF%E0%A7%8B%E0%A7%8D%E0%AE%8E%E0%AE%95%E0%AE%9F%E0%AE%A3%E0%AE%A4%E0%AE%A9%E0%AE%AA%E0%AE%AE%E0%AE%AF%E0%AE%B0%E0%AE%B4%E0%AE%B5%E0%AE%B7%E0%AE%B9%E0%AE%BE%E0%AE%BF%E0%AF%86%E0%AF%8B%E0%AF%8D%E2%80%8C%E2%80%8D%20" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@500;700&family=Noto+Sans+Bengali:wght@500;700&family=Noto+Sans+Tamil:wght@500;700&display=swap&text=%E0%A4%80%E0%A4%82%E0%A4%85%E0%A4%86%E0%A4%87%E0%A4%95%E0%A4%9D%E0%A4%9F%E0%A4%A0%E0%A4%A1%E0%A4%A4%E0%A4%A6%E0%A4%A7%E0%A4%A8%E0%A4%AA%E0%A4%AE%E0%A4%AF%E0%A4%B0%E0%A4%B5%E0%A4%B7%E0%A4%B8%E0%A4%B9%E0%A4%BC%E0%A4%BE%E0%A4%BF%E0%A5%80%E0%A5%87%E0%A5%88%E0%A5%8B%E0%A5%8C%E0%A5%8D%E0%A5%90%E0%A6%82%E0%A6%86%E0%A6%87%E0%A6%95%E0%A6%9B%E0%A6%9F%E0%A6%A0%E0%A6%A1%E0%A6%A7%E0%A6%A8%E0%A6%AA%E0%A6%AC%E0%A6%AD%E0%A6%AE%E0%A6%B0%E0%A6%B2%E0%A6%B7%E0%A6%B9%E0%A6%BC%E0%A6%BE%E0%A6%BF%E0%A7%8B%E0%A7%8D%E0%AE%8E%E0%AE%95%E0%AE%9F%E0%AE%A3%E0%AE%A4%E0%AE%A9%E0%AE%AA%E0%AE%AE%E0%AE%AF%E0%AE%B0%E0%AE%B4%E0%AE%B5%E0%AE%B7%E0%AE%B9%E0%AE%BE%E0%AE%BF%E0%AF%86%E0%AF%8B%E0%AF%8D%E2%80%8C%E2%80%8D%20%E0%A5%82%E0%A4%AC%E0%A4%97%E0%A4%9C%E0%A5%81%E0%A4%9A%E0%A5%86%E0%A4%B2%2C." rel="stylesheet">
 <style>
 /* Layout idea: a calm cream page that turns into rounded dark and green "chapters"; words in five scripts flow along a curve; apps told as a pinned scroll story. */
 :root{
@@ -419,6 +419,15 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 .mail button{background:var(--grad);color:#160A14}
 .copy-msg{color:var(--mint2)}
 .mark{font-family:var(--disp);font-weight:800}
+/* never scroll sideways: parts sliding in from the sides stay clipped */
+html,body{overflow-x:clip;max-width:100%}
+@supports not (overflow:clip){body{overflow-x:hidden}}
+/* other typing tool card: big label, small word, Hindi InScript keys */
+.speed .card.before .lbl{font-size:44px;line-height:1.1;color:var(--mut)}
+.speed .card.before .big{font-size:13.5px;line-height:1.5;color:#FF6B8B}
+.h-out{font-family:"Noto Sans Devanagari",var(--indic)}
+.kb .row{width:100%;justify-content:center}
+.kb span{flex:0 1 24px;min-width:0;width:auto}
 /* keep the footer name and band label inside small screens */
 .mark{font-size:clamp(28px,10vw,150px)}.band .eyebrow{padding:0 clamp(16px,4vw,40px)}
 .mark .txtm{background:linear-gradient(110deg,#FFC93D 0%,#FF8A3D 17%,#FF3D81 33%,#B04DFF 50%,#FF3D81 67%,#FF8A3D 83%,#FFC93D 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s linear infinite}
@@ -722,10 +731,10 @@ html.nb-anim .lit .w.on{opacity:1}
 
     <div class="speed rv">
       <div class="card before">
-        <div class="lbl">Hunting for keys</div>
+        <div class="lbl">Other typing tool</div>
         <div class="big">Slow</div>
         <div class="hunt" aria-hidden="true">
-          <div class="h-out"><span id="hOut">ક</span><span class="h-caret"></span><span class="h-err" id="hErr">Wrong letter</span></div>
+          <div class="h-out"><span id="hOut" lang="hi">क</span><span class="h-caret"></span><span class="h-err" id="hErr">Wrong letter</span></div>
           <div class="kb" id="kb"></div>
           <div class="h-meta"><span>⏱ <b id="hTime">00:00</b></span><span class="h-wpm"><i id="hBar"></i></span><span><b>8</b> wpm</span></div>
         </div>
@@ -1077,10 +1086,10 @@ html.nb-anim .lit .w.on{opacity:1}
   },lni===0?4200:3200);
 
   /* slow card: hunting keys, wrong letters, crawling timer */
-  var kbEl=document.getElementById("kb"), rowsK=[["અ","આ","ઇ","ઈ","ઉ","બ","હ","ગ","દ","જ"],["એ","ઓ","ક","પ","ર","ત","ચ","ટ","ડ","ણ"],["મ","ન","વ","લ","સ","ય","શ"]], keys=[];
+  var kbEl=document.getElementById("kb"), rowsK=[["ौ","ै","ा","ी","ू","ब","ह","ग","द","ज","ड","़"],["ो","े","्","ि","ु","प","र","क","त","च","ट"],["ॆ","ं","म","न","व","ल","स",",",".","य"]], keys=[];
   rowsK.forEach(function(r){ var d=document.createElement("div"); d.className="row"; r.forEach(function(k){ var sp=document.createElement("span"); sp.textContent=k; d.appendChild(sp); keys.push(sp); }); kbEl.appendChild(d); });
   var hOut=document.getElementById("hOut"), hErr=document.getElementById("hErr"), hTime=document.getElementById("hTime"), hBar=document.getElementById("hBar"), hBox=hOut.parentNode;
-  var steps2=["ક","કે","કેમ","કેમ ","કેમ છ","કેમ છો"], st2=0, secs=0, tick=0;
+  var steps2=["क","कै","कैस","कैसे","कैसे ह","कैसे हो"], st2=0, secs=0, tick=0;
   if(!reduce) setInterval(function(){
     tick++; var k=keys[Math.floor(Math.random()*keys.length)], bad=Math.random()<.45;
     k.classList.add(bad?"bad":"hit"); setTimeout(function(){ k.classList.remove("bad","hit"); },380);
