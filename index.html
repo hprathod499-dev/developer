@@ -419,29 +419,6 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 .mail button{background:var(--grad);color:#160A14}
 .copy-msg{color:var(--mint2)}
 .mark{font-family:var(--disp);font-weight:800}
-/* try it here */
-.try{position:relative;margin-top:16px;border-radius:22px;padding:24px;text-align:left;background:linear-gradient(135deg,rgba(61,220,255,.10),rgba(176,77,255,.12)),#14173A}
-.try::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.try-head h3{font-family:var(--disp);font-weight:800;font-size:clamp(26px,3.4vw,34px);margin:0}
-.try-head p{margin:6px 0 0;color:var(--mut);font-size:15px}
-.try-langs{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 14px}
-.try-langs button{font:600 14px var(--indic);color:var(--tx);background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer}
-.try-langs button.on{background:var(--grad);color:#160A14;border-color:transparent}
-.try-langs button:focus-visible,.try-copy:focus-visible,.try-in:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
-.try-in{width:100%;box-sizing:border-box;font:500 18px var(--mono);color:var(--tx);background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-.try-out{font-family:var(--indic);font-weight:700;font-size:clamp(28px,4.5vw,44px);line-height:1.5;min-height:1.5em;margin:14px 2px 6px;word-break:break-word}
-.try-foot{display:flex;align-items:center;gap:14px;flex-wrap:wrap;color:var(--mut);font-size:13px}
-.try-copy{font:600 14px var(--sans);color:#160A14;background:var(--grad);border:0;border-radius:999px;padding:8px 18px;cursor:pointer}
-/* Quick Finds picture */
-.qf-mock{width:min(520px,100%);margin:0 auto 26px;border-radius:14px;overflow:hidden;background:#202124;border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 60px -30px rgba(0,0,0,.9);text-align:left}
-.qf-mock .bar{display:flex;align-items:center;height:30px;padding-left:12px;background:#2B2C30;font:600 12px var(--sans);color:#A6ACCB}
-.qf-mock .bar span{flex:1}.qf-mock .bar b{width:40px;text-align:center;font-weight:400}
-.qf-mock .q{margin:12px;padding:10px 12px;border-radius:10px;background:#2F3034;font:500 15px var(--sans);color:#F5F6FF;display:flex;gap:10px;align-items:center}
-.qf-mock .q i{font-style:normal;color:#A6ACCB}
-.qf-mock .r{display:flex;flex-direction:row;align-items:center;gap:12px;padding:9px 14px;font:500 14px var(--sans);color:#E8EAF6}
-.qf-mock .r.sel{background:rgba(61,220,255,.12);box-shadow:inset 3px 0 0 var(--cyan)}
-.qf-mock .r em{font-style:normal;margin-left:auto;font-size:12px;color:#A6ACCB}
-.qf-mock .ic{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;font-size:14px;flex:none}
 /* never scroll sideways: parts sliding in from the sides stay clipped */
 html,body{overflow-x:clip;max-width:100%}
 @supports not (overflow:clip){body{overflow-x:hidden}}
@@ -668,7 +645,7 @@ html,body{overflow-x:clip;max-width:100%}
 .qf-bar b{width:44px;text-align:center;font:400 12px/32px var(--sans);color:#A6ACCB}
 .dev.qf-video video{display:block;width:100%;height:auto;aspect-ratio:1280/530;object-fit:cover;background:#202124}
 /* Quick Finds: text only, no video */
-#apps .stage{display:none}#apps .pin{grid-template-columns:1fr;min-height:0;padding:110px clamp(16px,4vw,40px) 40px;justify-items:center}@media (min-width:901px){#apps .pin{padding-top:140px}}#apps .texts{height:auto;max-width:640px;text-align:center}#apps .txt{position:relative}
+#apps .stage{display:none}#apps .pin{grid-template-columns:1fr;min-height:0;padding:110px clamp(16px,4vw,40px) 40px;justify-items:center}#apps .texts{height:auto;max-width:640px;text-align:center}#apps .txt{position:relative}@media (min-width:901px){#apps .pin{padding-top:136px}}
 /* welcome line: longer than the name was, so it scales with the screen and never wraps */
 .name-rot .nm{white-space:nowrap;font-size:clamp(19px,6vw,30px)}
 /* one app in the viewer: no side list */
@@ -773,15 +750,6 @@ html.nb-anim .lit .w.on{opacity:1}
       </div>
     </div>
 
-    <div class="try rv" id="try">
-      <div class="try-head"><h3>Try it here</h3><p>Type in English the way it sounds. It shows up in your language.</p></div>
-      <div class="try-langs" id="tryLangs">
-        <button type="button" class="on" data-l="gu" lang="gu">ગુજરાતી</button><button type="button" data-l="hi" lang="hi">हिन्दी</button><button type="button" data-l="mr" lang="mr">मराठी</button><button type="button" data-l="bn" lang="bn">বাংলা</button><button type="button" data-l="ta" lang="ta">தமிழ்</button>
-      </div>
-      <input class="try-in" id="tryIn" type="text" value="kem chho" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Type in English">
-      <div class="try-out" id="tryOut" lang="gu" aria-live="polite">કેમ છો</div>
-      <div class="try-foot"><button type="button" class="try-copy" id="tryCopy">Copy</button><span>A small demo. The real tool also suggests words as you type.</span></div>
-    </div>
 
     <div class="store rv">
       <a class="lang" href="https://apps.microsoft.com/detail/9pftflhhv8p0?hl=en-GB&amp;gl=IN" target="_blank" rel="noopener"><span class="sc" style="font-family:'Noto Sans Gujarati'">ગુ</span><span class="ln">Gujarati</span><span class="gt">Get it ↗</span></a>
@@ -812,7 +780,6 @@ html.nb-anim .lit .w.on{opacity:1}
       </div>
 
       <div class="texts">
-        <div class="qf-mock" aria-hidden="true"><div class="bar"><span>Quick Finds</span><b>—</b><b>▢</b><b>✕</b></div><div class="q"><i>⌕</i>chrome</div><div class="r sel"><span class="ic" style="background:#fff">🌐</span>Google Chrome<em>App</em></div><div class="r"><span class="ic" style="background:#F2C14E">📁</span>Chrome<em>Folder</em></div><div class="r"><span class="ic" style="background:#3B4A6B">⬇</span>ChromeSetup.exe<em>File</em></div><div class="r"><span class="ic" style="background:#4A3B6B">▣</span>Google Chrome<em>Open window</em></div></div>
         <div class="txt on" data-i="0"><span class="st wip">Store review</span><h3>Quick Finds</h3><div class="k">Windows utility</div><p>Find apps, files, settings and open windows on your Windows PC in a moment. It also does quick maths and unit conversions.</p></div>
       </div>
     </div>
@@ -1131,66 +1098,6 @@ html.nb-anim .lit .w.on{opacity:1}
     if(bad && tick%3===0){ hErr.classList.add("show"); hBox.classList.remove("shake"); void hBox.offsetWidth; hBox.classList.add("shake"); setTimeout(function(){ hErr.classList.remove("show"); },700); }
     else if(tick%4===0){ st2++; if(st2>=steps2.length){ st2=0; secs=0; } hOut.textContent=steps2[st2]; hBar.style.width=(8+st2*3)+"%"; }
   },420);
-
-  /* try it here: small phonetic converter (demo) */
-(function(){
-  var inp=document.getElementById("tryIn"); if(!inp) return;
-  var out=document.getElementById("tryOut"), langs=[].slice.call(document.querySelectorAll("#tryLangs button")), copy=document.getElementById("tryCopy");
-  var BASE={gu:0x0A80,hi:0x0900,mr:0x0900,bn:0x0980,ta:0x0B80};
-  var EX={gu:"kem chho",hi:"aap kaise hain",mr:"tumhi kase aahat",bn:"kemon achho",ta:"vanakkam"};
-  var WORDS={
-    gu:{kem:"કેમ",chho:"છો",cho:"છો",maru:"મારું",taru:"તારું",naam:"નામ",chhe:"છે",che:"છે",tame:"તમે",majama:"મજામાં",aabhar:"આભાર",gujarati:"ગુજરાતી"},
-    hi:{hain:"हैं",main:"मैं",hun:"हूँ",hoon:"हूँ",namaste:"नमस्ते",dhanyavaad:"धन्यवाद",kya:"क्या",hindi:"हिन्दी",aap:"आप"},
-    mr:{aahe:"आहे",tumhi:"तुम्ही",namaskar:"नमस्कार",dhanyavaad:"धन्यवाद",marathi:"मराठी"},
-    bn:{ami:"আমি",tumi:"তুমি",bhalo:"ভালো",achhi:"আছি",achho:"আছো",kemon:"কেমন",dhonnobad:"ধন্যবাদ",bangla:"বাংলা"},
-    ta:{vanakkam:"வணக்கம்",nanri:"நன்றி",eppadi:"எப்படி",irukkeenga:"இருக்கீங்க",irukkinga:"இருக்கீங்க",tamil:"தமிழ்"}
-  };
-  var C={k:0x15,kh:0x16,g:0x17,gh:0x18,ch:0x1A,chh:0x1B,j:0x1C,jh:0x1D,T:0x1F,Th:0x20,D:0x21,Dh:0x22,N:0x23,t:0x24,th:0x25,d:0x26,dh:0x27,n:0x28,p:0x2A,ph:0x2B,b:0x2C,bh:0x2D,m:0x2E,y:0x2F,r:0x30,l:0x32,L:0x33,zh:0x34,v:0x35,sh:0x36,Sh:0x37,s:0x38,h:0x39};
-  var TA={kh:"k",g:"k",gh:"k",chh:"ch",jh:"ch",Th:"T",D:"T",Dh:"T",th:"t",d:"t",dh:"t",ph:"p",b:"p",bh:"p",sh:"Sh"};
-  var IV={a:0x05,aa:0x06,i:0x07,ii:0x08,u:0x09,uu:0x0A,e:0x0F,ai:0x10,o:0x13,au:0x14};
-  var MV={aa:0x3E,i:0x3F,ii:0x40,u:0x41,uu:0x42,e:0x47,ai:0x48,o:0x4B,au:0x4C};
-  var CP=["chh","Sh","sh","kh","gh","ch","jh","Th","th","Dh","dh","ph","bh","zh","k","g","j","T","t","D","d","N","n","p","b","m","y","r","L","l","v","s","h"];
-  var VP=["aa","ai","au","ee","ii","oo","uu","a","i","u","e","o"];
-  var ALIAS={w:"v",f:"ph",z:"j",q:"k",c:"k"};
-  function norm(w){ var o=""; for(var i=0;i<w.length;i++){ var c=w[i]; if("TDNL".indexOf(c)>=0||(c==="S"&&w[i+1]==="h")) o+=c; else o+=c.toLowerCase(); } return o; }
-  function tokens(w){ var t=[],i=0; while(i<w.length){ var hit=null,j;
-      if(w[i]==="x"){ t.push({c:"k"},{c:"Sh"}); i++; continue; }
-      for(j=0;j<CP.length;j++) if(w.substr(i,CP[j].length)===CP[j]){ hit={c:CP[j]}; i+=CP[j].length; break; }
-      if(!hit) for(j=0;j<VP.length;j++) if(w.substr(i,VP[j].length)===VP[j]){ var v=VP[j]; hit={v:v==="ee"?"ii":v==="oo"?"uu":v}; i+=VP[j].length; break; }
-      if(!hit&&ALIAS[w[i]]){ hit={c:ALIAS[w[i]]}; i++; }
-      if(!hit){ hit={x:w[i]}; i++; }
-      t.push(hit); } return t; }
-  function ch(b,off){ return String.fromCharCode(b+off); }
-  function word(w,L){
-    var dict=WORDS[L], low=w.toLowerCase(); if(dict[low]) return dict[low];
-    var b=BASE[L], t=tokens(norm(w)), o="", ta=L==="ta", NOAN={y:1,r:1,l:1,v:1,h:1,n:1,m:1};
-    for(var i=0;i<t.length;i++){ var k=t[i], nx=t[i+1];
-      if(k.x!==undefined){ o+=k.x; continue; }
-      if(k.v){ var v=k.v; if(i===t.length-1&&v==="i"&&L!=="bn"&&L!=="ta"&&i>0) v="ii"; o+=ch(b,IV[v]); continue; }
-      var c=k.c;
-      if(!ta&&c==="n"&&i>0&&nx&&nx.c&&!NOAN[nx.c]){ o+=ch(b,0x02); continue; }
-      if((L==="hi"||L==="mr")&&c==="n"&&!nx&&i>0&&t[i-1].v&&t[i-1].v!=="a"){ o+=ch(b,0x02); continue; }
-      if(ta){ c=TA[c]||c; }
-      var off=C[c]; if(L==="bn"&&c==="v") off=C.b; if(L==="bn"&&c==="L") off=C.l;
-      if(ta&&c==="n"&&i>0) off=(nx&&(nx.c==="k"||nx.c==="g"))?0x19:0x29;
-      o+=ch(b,off);
-      if(nx&&nx.c) o+=ch(b,0x4D);
-      else if(nx&&nx.v){ var mv=nx.v; if(i+1===t.length-1&&mv==="i"&&L!=="bn"&&L!=="ta") mv="ii"; if(mv==="a"&&i+1===t.length-1&&!ta&&L!=="bn") mv="aa"; if(mv==="a"&&i+1===t.length-1&&ta) mv="aa"; if(mv!=="a") o+=ch(b,MV[mv]); i++; }
-      else if(!nx&&ta) o+=ch(b,0x4D);
-    }
-    return o;
-  }
-  var L="gu";
-  function conv(){ out.textContent=inp.value.split(/(\s+)/).map(function(p){ return /^\s*$/.test(p)?p:p.split(/([^A-Za-z]+)/).map(function(q){ return /^[A-Za-z]+$/.test(q)?word(q,L):q; }).join(""); }).join(""); }
-  var fontsLoaded=false;
-  function loadFonts(){ if(fontsLoaded) return; fontsLoaded=true; var l=document.createElement("link"); l.rel="stylesheet"; l.href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@500;700&family=Noto+Sans+Bengali:wght@500;700&family=Noto+Sans+Tamil:wght@500;700&display=swap"; document.head.appendChild(l); }
-  langs.forEach(function(btn){ btn.addEventListener("click",function(){ var was=EX[L]; L=btn.dataset.l; langs.forEach(function(x){ x.classList.toggle("on",x===btn); }); out.lang=L; if(!inp.value.trim()||inp.value===was) inp.value=EX[L]; loadFonts(); conv(); }); });
-  inp.addEventListener("input",function(){ loadFonts(); conv(); });
-  inp.addEventListener("focus",loadFonts);
-  copy.addEventListener("click",function(){ var txt=out.textContent; try{ navigator.clipboard.writeText(txt).then(function(){ copy.textContent="Copied"; setTimeout(function(){ copy.textContent="Copy"; },1500); }); }catch(e){} });
-  if("IntersectionObserver" in window){ var io=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ loadFonts(); io.disconnect(); } },{rootMargin:"400px"}); io.observe(inp); }
-  window.__tryWord=word;
-})();
 
   /* copy email */
   document.getElementById("copyBtn").addEventListener("click",function(){ var msg=document.getElementById("copyMsg");
