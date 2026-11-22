@@ -1066,6 +1066,11 @@ html.nb-anim .lit .w.on{opacity:1}
   /* typewriter layout names cycling on card 4 */
   var tws=[["બકમ","Gujarati",0],["हिंदी टाइपराइटर","Hindi",0],["मराठी टायपरायटर","Marathi",0],["বাংলা টাইপরাইটার","Bengali",0],["Tamil 99","Tamil",1]];
   var twN=document.getElementById("twName"), twL=document.getElementById("twLang"), twi=0;
+  /* reserve the tallest height so the card never jumps when a longer name wraps */
+  function twFit(){ var q=twN.parentNode, keep=twN.textContent, lat=twN.classList.contains("lat"), h=0; q.style.minHeight="";
+    tws.forEach(function(t){ twN.textContent=t[0]; twN.classList.toggle("lat",!!t[2]); h=Math.max(h,q.offsetHeight); });
+    twN.textContent=keep; twN.classList.toggle("lat",lat); q.style.minHeight=h+"px"; }
+  twFit(); addEventListener("resize",twFit); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(twFit);
   if(!reduce) setInterval(function(){ twi=(twi+1)%tws.length; twN.classList.add("swap");
     setTimeout(function(){ var t=tws[twi]; twN.textContent=t[0]; twN.classList.toggle("lat",!!t[2]); setName(twL,t[1]); twN.classList.remove("swap"); },250); },2200);
 
