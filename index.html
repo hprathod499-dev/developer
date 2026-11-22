@@ -647,7 +647,7 @@ html,body{overflow-x:clip;max-width:100%}
 /* Quick Finds: text only, no video */
 #apps .stage{display:none}#apps .pin{grid-template-columns:1fr;min-height:0;padding:110px clamp(16px,4vw,40px) 40px;justify-items:center}#apps .texts{height:auto;max-width:640px;text-align:center}#apps .txt{position:relative}@media (min-width:901px){#apps .pin{padding-top:136px}}
 /* welcome line: longer than the name was, so it scales with the screen and never wraps */
-.name-rot .nm{white-space:nowrap;font-size:clamp(19px,6vw,30px)}
+.name-rot .nm{white-space:nowrap;font-size:clamp(19px,6vw,30px);display:inline-block}.name-rot{width:100%;max-width:100%;text-align:center}
 /* one app in the viewer: no side list */
 .steps{display:none}
 .pin{grid-template-columns:1fr 300px}
@@ -844,7 +844,9 @@ html.nb-anim .lit .w.on{opacity:1}
   /* a heartfelt welcome, in each language */
   var names=[["આપનું હૃદયપૂર્વક સ્વાગત છે","gu"],["आपका हार्दिक स्वागत है","hi"],["आपले मनःपूर्वक स्वागत आहे","mr"],["আপনাকে আন্তরিক স্বাগতম","bn"],["உங்களை அன்புடன் வரவேற்கிறோம்","ta"]];
   var nm=document.getElementById("nmText"), nTabs=document.getElementById("nameTabs"), ni=0, nT=null;
-  function showName(i){ ni=i; nm.textContent=names[i][0]; nm.lang=names[i][1]; nm.classList.remove("flip"); void nm.offsetWidth; nm.classList.add("flip");
+  function fitName(){ nm.style.fontSize=""; var box=nm.parentNode.clientWidth-12, w=nm.offsetWidth; if(box>0&&w>box){ var fs=parseFloat(getComputedStyle(nm).fontSize); nm.style.fontSize=Math.max(12,Math.floor(fs*box/w*10)/10)+"px"; } }
+  addEventListener("resize",fitName); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitName);
+  function showName(i){ ni=i; nm.textContent=names[i][0]; nm.lang=names[i][1]; fitName(); nm.classList.remove("flip"); void nm.offsetWidth; nm.classList.add("flip");
     [].forEach.call(nTabs.children,function(b,k){ b.classList.toggle("on",k===i); }); }
   function autoName(){ clearInterval(nT); if(!reduce) nT=setInterval(function(){ showName((ni+1)%names.length); },2600); }
   nTabs.addEventListener("click",function(e){ var b=e.target.closest("button"); if(b){ showName(+b.dataset.i); autoName(); } });
