@@ -419,6 +419,8 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 .mail button{background:var(--grad);color:#160A14}
 .copy-msg{color:var(--mint2)}
 .mark{font-family:var(--disp);font-weight:800}
+/* keep the footer name and band label inside small screens */
+.mark{font-size:clamp(28px,10vw,150px)}.band .eyebrow{padding:0 clamp(16px,4vw,40px)}
 .mark .txtm{background:linear-gradient(110deg,#FFC93D 0%,#FF8A3D 17%,#FF3D81 33%,#B04DFF 50%,#FF3D81 67%,#FF8A3D 83%,#FFC93D 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s linear infinite}
 .mark .bars i{background:var(--grad)}
 .foot{color:var(--mut)}
@@ -633,7 +635,8 @@ a:focus-visible,button:focus-visible{outline-color:var(--pink)}
 .qf-bar span{flex:1;font:600 12px var(--sans);color:#A6ACCB}
 .qf-bar b{width:44px;text-align:center;font:400 12px/32px var(--sans);color:#A6ACCB}
 .dev.qf-video video{display:block;width:100%;height:auto;aspect-ratio:1280/530;object-fit:cover;background:#202124}
-.stage:has(.qf-video){height:auto;min-height:0}
+/* Quick Finds: text only, no video */
+#apps .stage{display:none}#apps .pin{grid-template-columns:1fr;min-height:0;padding:110px clamp(16px,4vw,40px) 40px;justify-items:center}#apps .texts{height:auto;max-width:640px;text-align:center}#apps .txt{position:relative}
 /* welcome line: longer than the name was, so it scales with the screen and never wraps */
 .name-rot .nm{white-space:nowrap;font-size:clamp(19px,6vw,30px)}
 /* one app in the viewer: no side list */
@@ -763,13 +766,7 @@ html.nb-anim .lit .w.on{opacity:1}
         <li><button type="button" class="on" data-i="0">Quick Finds</button></li>
       </ol>
 
-      <div class="stage">
-        <!-- Quick Finds : real screen recording -->
-        <div class="dev qf-video on" data-i="0">
-          <div class="qf-bar" aria-hidden="true"><span>Quick Finds</span><b>—</b><b>▢</b><b>✕</b></div>
-          <video src="quickfinds.mp4" poster="quickfinds-poster.jpg" autoplay muted loop playsinline preload="metadata" width="1280" height="530"
-            aria-label="Quick Finds: typing chrome finds Google Chrome, a folder, a setup file and an open Chrome window"></video>
-        </div>
+      <div class="stage"><div class="dev on" data-i="0" aria-hidden="true"></div>
       </div>
 
       <div class="texts">
