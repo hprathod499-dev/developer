@@ -670,7 +670,7 @@ html.nb-anim .lit .w.on{opacity:1}
 
 /* ================= v2: Quick Finds live + interactive extras ================= */
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-#progress{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--grad);z-index:100;pointer-events:none}
+
 .pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--mint2);margin-right:7px;vertical-align:1px;animation:pulse 1.8s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(92,242,160,.7)}70%,100%{box-shadow:0 0 0 8px rgba(92,242,160,0)}}
 .txt-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
@@ -734,7 +734,22 @@ html.nb-anim .lit .w.on{opacity:1}
 .qf-cta small{color:var(--mut);font-size:13px}
 @media (max-width:900px){.qf-feats{grid-template-columns:repeat(2,1fr)}.desk{min-height:480px}}
 @media (max-width:560px){.qf-feats{grid-template-columns:1fr}.desk{padding:18px 10px 62px}.qf-foot span:nth-child(3){display:none}.qf-cta .cta{white-space:normal;text-align:center}}
-@media (prefers-reduced-motion: reduce){#progress{display:none}}
+
+/* real app icon + categories */
+.app-ic{border-radius:5px;display:block}
+.win-bar{gap:9px}.win-bar .app-ic+span{flex:none}
+.app-big{display:block;margin:0 auto 14px;border-radius:18px;box-shadow:0 14px 34px -12px rgba(255,201,61,.55),0 0 0 1px rgba(255,255,255,.12)}
+.qf-cats{display:flex;gap:6px;padding:0 12px 8px;overflow-x:auto;scrollbar-width:none}
+.qf-cats::-webkit-scrollbar{display:none}
+.qf-cats button{font:600 11.5px var(--sans);height:26px;padding:0 12px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:transparent;color:#A6ACCB;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}
+.qf-cats button:hover{color:#fff}
+.qf-cats button.on{background:rgba(255,255,255,.14);color:#fff;border-color:transparent}
+.qf-list{height:348px!important;overflow-y:auto!important;scrollbar-width:none;position:relative}
+.qf-list::-webkit-scrollbar{display:none}
+.qf-list li.empty{cursor:default;flex-direction:column;justify-content:center;text-align:center;gap:4px;padding:84px 20px 0;color:#9CA2C2}
+.qf-list li.empty b{font:600 15px var(--sans);color:#E8EAF8}
+.qf-list li.empty small{font:400 12.5px var(--sans)}
+
 /* draggable feature cards */
 .drag-hint{text-align:center;font:500 12px var(--mono);letter-spacing:.06em;color:#7E84A6;margin-top:14px}
 .qc{cursor:grab;user-select:none;-webkit-user-select:none;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
@@ -742,11 +757,66 @@ html.nb-anim .lit .w.on{opacity:1}
 .qc.settle{transition:transform .2s linear,translate .45s cubic-bezier(.2,.9,.25,1.2),rotate .45s cubic-bezier(.2,.9,.25,1.2),scale .3s}
 .qc{rotate:0deg}
 
+
+/* ===== Quick Finds demo: values read from the real app (Palette.Load / SearchWindow.Build / ApplyFrame) ===== */
+.desk{max-width:890px;padding:10px 0 68px}
+.win{--f:"Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;--fd:"Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
+ --top:rgba(252,252,253,.745);--bot:rgba(236,237,240,.81);--htop:rgba(255,255,255,.98);--hbot:rgba(246,247,248,.98);--rt:#fff;--rb:rgba(0,0,0,.18);
+ --tx:#1C1D1F;--sub:#5C6165;--faint:#888D92;--chip:rgba(0,0,0,.063);--chipon:rgba(0,0,0,.141);--sel:rgba(0,0,0,.078);--dv:rgba(0,0,0,.086);--key:rgba(0,0,0,.078);--tag:rgba(0,0,0,.063);--acc:#438DE0;--soft:rgba(67,141,224,.18);--sh:.22;
+ width:min(850px,100%);padding:30px;background:none;border:0;border-radius:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;overflow:visible;font-family:var(--f);color:var(--tx);text-align:left}
+.win[data-theme="dark"]{--top:rgba(52,54,57,.69);--bot:rgba(30,32,35,.77);--htop:rgb(74,77,80);--hbot:rgb(50,53,56);--rt:rgba(255,255,255,.43);--rb:rgba(255,255,255,.11);
+ --tx:#F6F6F5;--sub:#ACB1B4;--faint:#7A8084;--chip:rgba(255,255,255,.102);--chipon:rgba(255,255,255,.227);--sel:rgba(255,255,255,.133);--dv:rgba(255,255,255,.118);--key:rgba(255,255,255,.149);--tag:rgba(255,255,255,.118);--acc:#90C4FF;--soft:rgba(144,196,255,.14);--sh:.45}
+.win.nudge{animation:none}
+.qf-panel,.qf-c{background:linear-gradient(var(--top),var(--bot))}
+.qf-panel{position:relative;width:calc(100% - 0px);height:68px;border-radius:34px;overflow:hidden;box-shadow:0 5px 26px rgba(0,0,0,var(--sh));backdrop-filter:blur(34px) saturate(1.4);-webkit-backdrop-filter:blur(34px) saturate(1.4);
+ transition:width .34s cubic-bezier(.2,.8,.2,1),height .34s cubic-bezier(.2,.8,.2,1),border-radius .34s cubic-bezier(.2,.8,.2,1)}
+.win.idle .qf-panel{width:61.01%}
+.qf-panel::before,.qf-c::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(var(--rt),var(--rb));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:3}
+.win .qf-search{display:flex;align-items:center;height:68px;margin:0;padding:0 0 0 25px;gap:16px;background:none;border:0;border-radius:0;cursor:text;position:relative}
+.win .qf-search svg{flex:none;width:23px;height:23px;stroke:var(--sub);fill:none}
+.win .qf-search input{flex:1;min-width:0;height:68px;background:none;border:0;outline:0;padding:0;color:var(--tx);caret-color:var(--acc);font:400 25px var(--f)}
+.win .qf-search input::placeholder{color:var(--faint);opacity:1}
+.win .qf-search input::selection{background:color-mix(in srgb,var(--acc) 35%,transparent)}
+.qf-mh{display:flex;gap:4px;margin-right:22px;flex:none}
+.qf-mh.off{display:none}
+.qf-mh kbd,.qf-r kbd{font:400 12.5px var(--f);color:var(--tx);background:var(--key);border-radius:6px;padding:2px 7px 3px}
+.qf-body{position:absolute;left:0;right:0;top:68px;bottom:0;opacity:1;transition:opacity .2s .08s}
+.win.idle .qf-body{opacity:0;pointer-events:none;transition:opacity .1s}
+.qf-div{height:1px;background:var(--dv);margin:0 16px}
+.win .qf-cats{display:flex;align-items:center;height:46px;margin:0;padding:2px 14px 0;gap:0;overflow:hidden}
+.win .qf-cats button{font:400 13.5px var(--f);height:auto;padding:4px 12px 5px;margin:0 6px 0 0;border-radius:9px;border:0;background:var(--chip);color:var(--sub);cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
+.win .qf-cats button:hover{background:var(--chipon)}
+.win .qf-cats button.on{background:var(--chipon);color:var(--tx)}
+.win .qf-list{display:block;height:var(--vh,52px)!important;overflow-y:auto!important;margin:0 8px;padding:0;scrollbar-width:none;transition:height .34s cubic-bezier(.2,.8,.2,1)}
+.win .qf-list::-webkit-scrollbar{display:none}
+.win .qf-list li{display:grid;grid-template-columns:54px 1fr auto;align-items:center;height:52px;padding:0;gap:0;border-radius:13px;color:var(--tx);cursor:pointer;box-shadow:none;position:relative}
+.win .qf-list li[aria-selected="true"]{background:var(--sel);box-shadow:none}
+.win .qf-list li[aria-selected="true"]::before{display:none}
+.win .qf-ic{width:32px;height:32px;margin-left:6px;border-radius:9px;font:600 12px var(--f);display:grid;place-items:center;color:#fff}
+.win .qf-ic.soft{background:var(--soft)!important;color:var(--acc);font-size:15px}
+.win .qf-t{display:block;margin:0 10px 0 4px;min-width:0;padding-top:1px}
+.win .qf-t b{display:block;font:400 16px/1.25 var(--f);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.win .qf-t small{display:block;margin-top:1px;font:400 12.5px/1.25 var(--f);color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.win .qf-t mark{background:none;color:var(--acc);font-weight:600}
+.win .qf-r{font:400 12.5px var(--f);color:var(--faint);margin-right:16px;white-space:nowrap}
+.win .qf-list li.empty{display:block;height:52px;padding:10px 6px 0;cursor:default;color:var(--sub);font:400 14px var(--f);text-align:left;background:none}
+.win .qf-list li.empty b{font:400 14px var(--f);color:var(--sub);display:inline}
+.win .qf-list li.empty small{display:none}
+.qf-rail{position:absolute;top:30px;right:30px;width:0;height:68px;pointer-events:none}
+.qf-c{position:absolute;top:0;right:0;width:68px;height:68px;border-radius:34px;display:grid;place-items:center;border:0;padding:0;color:var(--sub);cursor:pointer;box-shadow:0 5px 26px rgba(0,0,0,var(--sh));backdrop-filter:blur(34px) saturate(1.4);-webkit-backdrop-filter:blur(34px) saturate(1.4);
+ opacity:0;transform:translateX(0) scale(.86);pointer-events:none;transition:transform .34s cubic-bezier(.2,.8,.2,1),opacity .25s,background .15s}
+.qf-c svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;position:relative;z-index:2}
+.qf-c:hover{background:linear-gradient(var(--htop),var(--hbot));color:var(--tx)}
+.win.idle .qf-c{opacity:1;pointer-events:auto}
+.win.idle .qf-c:nth-child(1){transform:translateX(-231px) scale(1)}.win.idle .qf-c:nth-child(2){transform:translateX(-154px) scale(1)}.win.idle .qf-c:nth-child(3){transform:translateX(-77px) scale(1)}.win.idle .qf-c:nth-child(4){transform:none}
+.win .qf-toast{position:absolute;left:50%;bottom:42px;top:auto;background:var(--chipon);color:var(--tx);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);font:400 13px var(--f);border-radius:9px;padding:6px 14px;z-index:5}
+.win .qf-foot,.win .win-bar{display:none}
+@media (max-width:640px){.win{padding:18px 8px}.win.idle .qf-panel{width:100%}.qf-rail{display:none}.win .qf-search input{font-size:20px}.win .qf-r{display:none}}
+@media (prefers-reduced-motion:reduce){.qf-panel,.qf-c,.win .qf-list{transition:none}}
 </style>
 </head>
 <body>
 
-<div id="progress" aria-hidden="true"></div>
 <nav class="nav" aria-label="Main">
   <a class="logo" href="#top" aria-label="Harshvardhan Rathod"><span class="bars eq"><i></i><i></i><i></i><i></i></span><span class="lname" id="lname" aria-hidden="true">Harshvardhan Rathod</span></a>
   <div class="seg"><a href="#typing" class="on" id="segT">Typing</a><a href="#apps" id="segA">Apps</a></div>
@@ -856,7 +926,7 @@ html.nb-anim .lit .w.on{opacity:1}
       </div>
 
       <div class="texts">
-        <div class="txt on" data-i="0"><span class="st live"><i class="pulse"></i>Live on Microsoft Store</span><h3>Quick Finds</h3><div class="k">Windows utility · Free</div><p>Press <b>Alt + Space</b> and search your whole PC: apps, files, settings and open windows. It also does quick maths and unit conversions, right in the search bar.</p>
+        <div class="txt on" data-i="0"><img class="app-big" src="data:image/png;base64,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" width="72" height="72" alt="Quick Finds app icon"><span class="st live"><i class="pulse"></i>Live on Microsoft Store</span><h3>Quick Finds</h3><div class="k">Windows utility · Free</div><p>Press <b>Alt + Space</b> and search your whole PC: apps, files, settings and open windows. It also does quick maths and unit conversions, right in the search bar.</p>
           <div class="txt-actions">
             <a class="cta" href="https://apps.microsoft.com/detail/9npqwkqxckxr?hl=en-GB&amp;gl=IN" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="6.5" height="6.5" fill="currentColor"/><rect x="8.5" y="1" width="6.5" height="6.5" fill="currentColor"/><rect x="1" y="8.5" width="6.5" height="6.5" fill="currentColor"/><rect x="8.5" y="8.5" width="6.5" height="6.5" fill="currentColor"/></svg>Get it free</a>
           </div>
@@ -874,16 +944,18 @@ html.nb-anim .lit .w.on{opacity:1}
     </div>
 
     <div class="desk" id="qfDesk">
-      <div class="win" id="qfWin">
-        <div class="win-bar"><span>Quick Finds</span><span class="sp"></span><button type="button" class="keys" id="qfKeys" aria-label="Focus the search box"><kbd class="k2">Alt</kbd><kbd class="k2">Space</kbd></button></div>
-        <label class="qf-search" for="qfIn">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#3DDCFF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <span class="sr">Search apps, files and settings</span>
-          <input id="qfIn" type="text" autocomplete="off" spellcheck="false" placeholder="Search apps, files, settings…" role="combobox" aria-expanded="true" aria-controls="qfList">
-        </label>
-        <ul class="qf-list" id="qfList" role="listbox" aria-label="Results"></ul>
-        
-        <div class="qf-foot"><span>↑ ↓ move</span><span>Enter open</span><span>Esc clear</span></div>
+      <div class="win idle" id="qfWin" data-theme="dark">
+        <div class="qf-panel" id="qfPanel">
+          <label class="qf-search" for="qfIn">
+            <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.9-4.9"/></svg>
+            <span class="sr">Search apps, files and settings</span>
+            <input id="qfIn" type="text" autocomplete="off" spellcheck="false" maxlength="400" placeholder="Quick Find" role="combobox" aria-expanded="true" aria-controls="qfList">
+            <span class="qf-mh" id="qfMh"><kbd>Ctrl</kbd><kbd id="qfMhD">0</kbd></span>
+          </label>
+          <div class="qf-body"><div class="qf-div"></div><div class="qf-cats" id="qfCats" role="tablist" aria-label="Categories"></div><ul class="qf-list" id="qfList" role="listbox" aria-label="Results"></ul></div>
+        </div>
+        <div class="qf-rail" id="qfRail"><button type="button" class="qf-c" data-c="app" aria-label="Applications"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg></button><button type="button" class="qf-c" data-c="file" aria-label="Files"><svg viewBox="0 0 24 24"><path d="M3.5 7.5a2 2 0 0 1 2-2h4l2 2.5h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/></svg></button><button type="button" class="qf-c" data-c="clip" aria-label="Clipboard"><svg viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="16" rx="2"/><path d="M9 4.5v-1h6v1M9 11h6M9 15h4"/></svg></button><button type="button" class="qf-c" data-c="action" aria-label="Actions"><svg viewBox="0 0 24 24"><path d="M13 3 5 13.5h6L10 21l9-11.5h-6z"/></svg></button></div>
+        <button type="button" id="qfKeys" hidden aria-hidden="true"></button>
         <div class="qf-toast" id="qfToast" role="status"></div>
       </div>
       <div class="task" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><span class="clock" id="qfClock"></span></div>
@@ -1239,20 +1311,21 @@ html.nb-anim .lit .w.on{opacity:1}
   function esc(s){ return String(s).replace(/[&<>"']/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
   function copyText(t){ try{ return navigator.clipboard.writeText(t); }catch(e){ return Promise.reject(e); } }
 
-  /* scroll progress bar */
-  var bar=document.getElementById("progress"), pt=false;
-  function prog(){ pt=false; var h=document.documentElement.scrollHeight-innerHeight; bar.style.transform="scaleX("+(h>0?Math.min(1,scrollY/h):0)+")"; }
-  addEventListener("scroll",function(){ if(!pt){ pt=true; requestAnimationFrame(prog); } },{passive:true}); prog();
-
-  /* ---------- Quick Finds live demo ---------- */
-  var qIn=document.getElementById("qfIn"), qList=document.getElementById("qfList"), qToast=document.getElementById("qfToast"), qWin=document.getElementById("qfWin"), qDemo=document.getElementById("qfDemo");
+  /* ---------- Quick Finds live demo (names and wording taken from the real app) ---------- */
+  var qIn=document.getElementById("qfIn"), qList=document.getElementById("qfList"), qToast=document.getElementById("qfToast"), qWin=document.getElementById("qfWin"), qDemo=document.getElementById("qfDemo"), qCats=document.getElementById("qfCats");
   if(qIn){
+    var GEAR="⚙︎", BOLT="⚡︎", SET="Windows Settings", TEAL="#0F7C8C", AMB="#C9871F";
     var DB=[
-      ["Notepad","App","N","#3D8BFF"],["Calculator","App","=","#6A3FC8"],["Paint","App","P","#FF8A3D"],["File Explorer","App","F","#E5A91F"],["Task Manager","App","T","#1E8E4F"],["Command Prompt","App",">_","#444B6E"],
-      ["Microsoft Word","App","W","#2B6BE0"],["Microsoft Excel","App","X","#1E8E4F"],["Google Chrome","App","C","#D9413B"],["Visual Studio Code","Open window · switch","VS","#2B8FE0"],
-      ["Bluetooth & devices","Setting","B","#0F7C8C"],["Display settings","Setting","D","#0F7C8C"],["Wi-Fi","Setting","W","#0F7C8C"],["Sound settings","Setting","S","#0F7C8C"],["Dark mode","Setting · Personalisation","M","#0F7C8C"],
-      ["Resume_2026.pdf","File · Documents","PDF","#D9413B"],["Class10_Notes.docx","File · Documents","DOC","#2B6BE0"],["Marksheet.pdf","File · Downloads","PDF","#D9413B"],["Budget.xlsx","File · Documents","XLS","#1E8E4F"],["Holiday photos","Folder · Pictures","DIR","#C99A2E"]
+      ["Notepad","Application","N","#3D8BFF","app",""],["Calculator","Application","=","#6A3FC8","app",""],["Paint","Application","P","#FF8A3D","app",""],["Photos","Application","Ph","#2B8FE0","app",""],["Snipping Tool","Application","S","#1E8E4F","app",""],["Clock","Application","C","#444B6E","app",""],
+      ["Microsoft Edge","Application","E","#1E9E8E","app","browser"],["Google Chrome","Application","G","#D9413B","app","browser"],["Microsoft Word","Application","W","#2B6BE0","app",""],["Microsoft Excel","Application","X","#1E8E4F","app",""],["PowerPoint","Application","P","#D9602B","app",""],["Spotify","Application","Sp","#1DB954","app","music"],
+      ["Resume_2026.pdf","File · Documents","PDF","#D9413B","file",""],["Class10_Notes.docx","File · Documents","DOC","#2B6BE0","file",""],["Marksheet.pdf","File · Downloads","PDF","#D9413B","file",""],["Budget.xlsx","File · Documents","XLS","#1E8E4F","file",""],["Holiday photos","Folder · Pictures","DIR","#C99A2E","file",""],
+      ["Lock PC","Lock the screen","L",AMB,"action","lock screen away"],["Sleep","Put the PC to sleep","Z",AMB,"action","suspend standby"],["Restart","Restart the PC","R",AMB,"action","reboot"],["Shut down","Turn off the PC","O",AMB,"action","power off shutdown turn off"],["Sign out","Sign out of Windows","S",AMB,"action","log off logout"],
+      ["Empty Recycle Bin","Permanently delete everything in the Recycle Bin","B",AMB,"action","trash delete clean"],["Toggle dark mode","Switch apps and Windows between light and dark","D",AMB,"action","theme light dark night"],["Snip a screenshot","Capture part of the screen","✂︎",AMB,"action","screenshot snipping capture print screen"],
+      ["Task Manager","See running apps and performance","T",AMB,"action","processes kill end task performance cpu memory"],["Control Panel","Classic settings","CP",AMB,"action","control panel"],["File Explorer","Browse files","F",AMB,"action","files folders explorer"],["Downloads folder","Open Downloads","↓",AMB,"action","downloads"],["Quick Finds settings","Shortcut, preview, theme and startup options","Q",AMB,"action","settings options preferences quickfind quick finds configure setup"],
+      ["Display settings",SET,GEAR,TEAL,"setting","screen monitor brightness resolution scale hdr"],["Night light",SET,GEAR,TEAL,"setting","blue light warm evening"],["Sound settings",SET,GEAR,TEAL,"setting","audio volume speakers headphones microphone output input"],["Bluetooth & devices",SET,GEAR,TEAL,"setting","pair headphones mouse keyboard devices"],["Wi-Fi",SET,GEAR,TEAL,"setting","wireless wlan internet network"],["Airplane mode",SET,GEAR,TEAL,"setting","flight offline"],
+      ["Background",SET,GEAR,TEAL,"setting","wallpaper desktop picture"],["Colors",SET,GEAR,TEAL,"setting","dark mode light mode accent theme transparency"],["Taskbar settings",SET,GEAR,TEAL,"setting","tray icons alignment widgets"],["Windows Update",SET,GEAR,TEAL,"setting","updates patch upgrade check for updates"],["Default apps",SET,GEAR,TEAL,"setting","default browser open with file associations"],["Storage",SET,GEAR,TEAL,"setting","disk space cleanup drive"],["About this PC",SET,GEAR,TEAL,"setting","system info specs rename computer name processor ram"],["Mouse",SET,GEAR,TEAL,"setting","pointer cursor scroll speed"]
     ];
+    var TABS=[["all","All"],["app","Applications"],["file","Files"],["clip","Clipboard"],["action","Actions"]], cat="all", clip="";
     var U={length:{m:1,km:1000,cm:.01,mm:.001,mi:1609.344,mile:1609.344,miles:1609.344,ft:.3048,foot:.3048,feet:.3048,inch:.0254,inches:.0254,yd:.9144},mass:{kg:1,g:.001,lb:.45359237,lbs:.45359237,pound:.45359237,pounds:.45359237,oz:.028349523},volume:{l:1,litre:1,litres:1,ml:.001,gal:3.785411784,gallon:3.785411784,gallons:3.785411784}};
     function unitKind(u){ for(var k in U) if(U[k][u]!==undefined) return k; return null; }
     function fmt(n){ return Number(n.toPrecision(10)).toLocaleString("en-IN",{maximumFractionDigits:8}); }
@@ -1264,55 +1337,87 @@ html.nb-anim .lit .w.on{opacity:1}
     function calc(q){
       if(!/^[\d\s+\-*/().%^]+$/.test(q)||!/\d/.test(q)||!/[+\-*/%^]/.test(q.replace(/^\s*-/,""))) return null;
       try{ var r=Function("\"use strict\";return ("+q.replace(/\^/g,"**")+")")(); if(typeof r!=="number"||!isFinite(r)) return null; return fmt(r); }catch(e){ return null; } }
-    var items=[], act=0, userMode=false;
-    function score(name,q){ var n=name.toLowerCase(); if(n.indexOf(q)===0) return 0; if((" "+n).indexOf(" "+q)>=0) return 1; if(n.indexOf(q)>=0) return 2; var i=0; for(var k=0;k<n.length&&i<q.length;k++) if(n[k]===q[i]) i++; return i===q.length&&q.length>1?3:-1; }
+    var items=[], act=-1, userMode=false;
+    function score(d,q){ var n=d[0].toLowerCase(); if(n.indexOf(q)===0) return 0; if((" "+n).indexOf(" "+q)>=0) return 1; if(n.indexOf(q)>=0) return 2; if(q.length>1&&(" "+d[5]).indexOf(" "+q)>=0) return 4; if(q.length>2&&d[5].indexOf(q)>=0) return 5;
+      var i=0; for(var k=0;k<n.length&&i<q.length;k++) if(n[k]===q[i]) i++; return i===q.length&&q.length>1?6:-1; }
     function hl(name,q){ var i=name.toLowerCase().indexOf(q); if(!q||i<0) return esc(name); return esc(name.slice(0,i))+"<mark>"+esc(name.slice(i,i+q.length))+"</mark>"+esc(name.slice(i+q.length)); }
+    function mk(d,q){ return {t:d[0],sub:d[1],ic:d[2],col:d[3],kind:d[4],q:q}; }
     function build(raw){
       var q=raw.trim(), ql=q.toLowerCase(); items=[];
-      if(!q){ items.push({sec:"Suggested"}); ["Notepad","Calculator","Bluetooth & devices","Resume_2026.pdf"].forEach(function(n){ var d=DB.filter(function(x){return x[0]===n;})[0]; items.push({t:d[0],sub:d[1],ic:d[2],col:d[3],kind:d[1].split(" ")[0].toLowerCase(),q:""}); }); return; }
-      var c=calc(q), cv=c===null?convert(q):null;
-      if(c!==null) items.push({big:true,t:"= "+c,sub:"Calculation · Enter to copy the answer",ic:"=",col:"linear-gradient(135deg,#FF8A3D,#FF3D81)",kind:"calc",copy:c});
-      else if(cv) items.push({big:true,t:cv.split(" = ")[1],sub:cv+" · Enter to copy",ic:"⇄",col:"linear-gradient(135deg,#3DDCFF,#7C8BFF)",kind:"convert",copy:cv.split(" = ")[1]});
-      DB.map(function(d){ return [score(d[0],ql),d]; }).filter(function(x){ return x[0]>=0; }).sort(function(a,b){ return a[0]-b[0]; }).slice(0,5).forEach(function(x){ var d=x[1]; items.push({t:d[0],sub:d[1],ic:d[2],col:d[3],kind:d[1].split(" ")[0].toLowerCase(),q:ql}); });
-      items.push({t:"Search the web for “"+q+"”",sub:"Opens your default browser",ic:"G",col:"#444B6E",kind:"web",q:"",plain:true}); }
+      if(cat==="clip"){ if(clip) items.push({t:clip,sub:"Clipboard · Enter to copy again",ic:"\u29C9\uFE0E",col:"#5C5FD6",kind:"clip",copy:clip,q:""}); else items.push({empty:"The clipboard has no text",hint:"Copy an answer from the search bar and it shows up here."}); return; }
+      var pool=DB.filter(function(d){ return cat==="all"||(cat==="action"?(d[4]==="action"||d[4]==="setting"):d[4]===cat); });
+      if(!q){ if(cat==="all"){ items.push({sec:"Suggested"}); ["Notepad","Calculator","Task Manager","Bluetooth & devices"].forEach(function(n){ items.push(mk(DB.filter(function(x){return x[0]===n;})[0],"")); }); } else pool.slice(0,7).forEach(function(d){ items.push(mk(d,"")); }); }
+      else{
+        if(cat==="all"){ var c=calc(q), cv=c===null?convert(q):null;
+          if(c!==null) items.push({big:true,t:"= "+c,sub:"Calculation · Enter to copy the answer",ic:"=",col:"linear-gradient(135deg,#FF8A3D,#FF3D81)",kind:"calc",copy:c});
+          else if(cv) items.push({big:true,t:cv.split(" = ")[1],sub:cv+" · Enter to copy",ic:"⇄",col:"linear-gradient(135deg,#3DDCFF,#7C8BFF)",kind:"convert",copy:cv.split(" = ")[1]}); }
+        pool.map(function(d){ return [score(d,ql),d]; }).filter(function(x){ return x[0]>=0; }).sort(function(a,b){ return a[0]-b[0]; }).slice(0,cat==="all"?6:7).forEach(function(x){ items.push(mk(x[1],ql)); });
+        if(cat==="all") items.push({t:"Search the web for “"+q+"”",sub:"Opens your default browser",ic:"G",col:"#444B6E",kind:"web",q:"",plain:true});
+        else if(!items.length) items.push({empty:"No results for “"+q+"”"});
+      }
+      if(!items.some(function(x){ return !x.sec&&!x.empty; })&&!items.some(function(x){ return x.empty; })) items.push({empty:q?"No results for “"+q+"”":"Nothing here yet"}); }
+    var qPanel=document.getElementById("qfPanel"), qMh=document.getElementById("qfMh"), qMhD=document.getElementById("qfMhD"), hov=-1, MODES=["all","app","file","clip","action"], NAMES=["Quick Find","Applications","Files","Clipboard","Actions"];
+    qWin.setAttribute("data-theme",(window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches)?"light":"dark");
+    var build0=build; build=function(raw){ build0(raw); if(cat==="all"&&!raw.trim()) items=[]; };
+    function lab(it){ var k=it.kind; return k==="app"?"App":k==="file"?(/^Folder/.test(it.sub)?"Folder":"File"):k==="setting"?"Settings":k==="action"?"Action":(k==="calc"||k==="convert")?"Calculator":k==="web"?"Web":k==="clip"?"Clipboard":""; }
+    function act2(it){ var k=it.kind; return k==="action"?"Run":(k==="calc"||k==="convert"||k==="clip")?"Copy":"Open"; }
+    function layout(){ var idle=cat==="all"&&!qIn.value.trim(), n=items.filter(selectable).length, vh=idle?0:(n?Math.min(n,7)*52:52);
+      qWin.classList.toggle("idle",idle); qPanel.style.height=(idle?68:114+vh+10)+"px"; qPanel.style.borderRadius=(idle?34:24)+"px"; qList.style.setProperty("--vh",vh+"px");
+      var m=hov>=0?hov+1:MODES.indexOf(cat); qIn.placeholder=NAMES[m]; qMhD.textContent=m; qMh.classList.toggle("off",!!qIn.value); }
+    draw=function(){ var html="", firstSel=true; items.forEach(function(it,k){
+        if(it.empty){ html+="<li class=\"empty\" role=\"presentation\"><b>"+esc(it.empty)+"</b></li>"; return; }
+        if(it.sec) return;
+        var soft=(it.kind!=="app"&&it.kind!=="file"), sel=(k===act);
+        html+="<li role=\"option\" data-k=\""+k+"\" aria-selected=\""+sel+"\"><span class=\"qf-ic"+(soft?" soft":"")+"\" style=\""+(soft?"":"background:"+it.col)+"\">"+esc(it.ic)+"</span><span class=\"qf-t\"><b>"+(it.plain||it.big?esc(it.t):hl(it.t,it.q))+"</b><small>"+esc(it.sub)+"</small></span><span class=\"qf-r\">"+(sel?act2(it):lab(it))+"</span></li>"; });
+      qList.innerHTML=html; qList.scrollTop=0; layout(); };
+    selectOnly=function(k){ act=k; [].forEach.call(qList.querySelectorAll("li[data-k]"),function(li){ var on=+li.dataset.k===k; li.setAttribute("aria-selected",on); var it=items[+li.dataset.k]; li.querySelector(".qf-r").textContent=on?act2(it):lab(it); });
+      var el=qList.querySelector("li[data-k=\""+k+"\"]"); if(el){ var t=el.offsetTop, b=t+el.offsetHeight; if(t<qList.scrollTop) qList.scrollTop=t; else if(b>qList.scrollTop+qList.clientHeight) qList.scrollTop=b-qList.clientHeight; } };
+    [].forEach.call(document.querySelectorAll(".qf-c"),function(c,i){ c.addEventListener("click",function(){ take(); setCat(c.dataset.c); qIn.focus({preventScroll:true}); }); c.addEventListener("mouseenter",function(){ hov=i; layout(); }); c.addEventListener("mouseleave",function(){ hov=-1; layout(); }); });
+    qIn.addEventListener("keydown",function(e){ if(e.ctrlKey&&/^[0-4]$/.test(e.key)){ e.preventDefault(); take(); setCat(MODES[+e.key]); } else if(e.key==="Escape"&&!qIn.value&&cat!=="all"){ setCat("all"); } });
+    qIn.addEventListener("blur",function(){ hov=-1; });
+    var run0=run; run=function(it){ if(it&&it.t==="Toggle dark mode"){ qWin.setAttribute("data-theme",qWin.getAttribute("data-theme")==="dark"?"light":"dark"); toast("Switched to "+qWin.getAttribute("data-theme")+" mode"); return; } run0(it); };
+    refresh();
+    function selectable(x){ return !x.sec&&!x.empty; }
     function draw(){
-      var html="", idx=0, firstSel=-1; items.forEach(function(it,k){
+      var html="", idx=0; items.forEach(function(it,k){
         if(it.sec){ html+="<li class=\"sec\" role=\"presentation\">"+esc(it.sec)+"</li>"; return; }
-        if(firstSel<0) firstSel=k;
-        html+="<li role=\"option\" data-k=\""+k+"\" style=\"--i:"+(idx++)+"\" class=\""+(it.big?"big":"")+"\" aria-selected=\""+(k===act)+"\"><span class=\"qf-ic\" style=\"background:"+it.col+"\">"+esc(it.ic)+"</span><span class=\"qf-t\"><b>"+(it.plain||it.big?esc(it.t):hl(it.t,it.q))+"</b><small>"+esc(it.sub)+"</small></span>"+(k===act?"<span class=\"qf-hint\">Enter</span>":"")+"</li>"; });
-      qList.innerHTML=html;}
-    function refresh(){ build(qIn.value); act=items.findIndex(function(x){ return !x.sec; }); draw(); }
-    function selectOnly(k){ act=k; [].forEach.call(qList.querySelectorAll("li[data-k]"),function(li){ var on=+li.dataset.k===k; li.setAttribute("aria-selected",on); var h=li.querySelector(".qf-hint"); if(on&&!h){ li.insertAdjacentHTML("beforeend","<span class=\"qf-hint\">Enter</span>"); } else if(!on&&h){ h.remove(); } });}
+        if(it.empty){ html+="<li class=\"empty\" role=\"presentation\"><b>"+esc(it.empty)+"</b>"+(it.hint?"<small>"+esc(it.hint)+"</small>":"")+"</li>"; return; }
+        html+="<li role=\"option\" data-k=\""+k+"\" class=\""+(it.big?"big":"")+"\" aria-selected=\""+(k===act)+"\"><span class=\"qf-ic\" style=\"background:"+it.col+"\">"+esc(it.ic)+"</span><span class=\"qf-t\"><b>"+(it.plain||it.big?esc(it.t):hl(it.t,it.q))+"</b><small>"+esc(it.sub)+"</small></span>"+(k===act?"<span class=\"qf-hint\">Enter</span>":"")+"</li>"; });
+      qList.innerHTML=html; qList.scrollTop=0; }
+    function refresh(){ build(qIn.value); act=items.findIndex(selectable); draw(); }
+    function selectOnly(k){ act=k; [].forEach.call(qList.querySelectorAll("li[data-k]"),function(li){ var on=+li.dataset.k===k; li.setAttribute("aria-selected",on); var h=li.querySelector(".qf-hint"); if(on&&!h){ li.insertAdjacentHTML("beforeend","<span class=\"qf-hint\">Enter</span>"); } else if(!on&&h){ h.remove(); } });
+      var el=qList.querySelector("li[data-k=\""+k+"\"]"); if(el){ var t=el.offsetTop, b=t+el.offsetHeight; if(t<qList.scrollTop) qList.scrollTop=t-4; else if(b>qList.scrollTop+qList.clientHeight) qList.scrollTop=b-qList.clientHeight+4; } }
     var tT; function toast(m){ qToast.textContent=m; qToast.classList.add("show"); clearTimeout(tT); tT=setTimeout(function(){ qToast.classList.remove("show"); },1800); }
     function run(it){ if(!it) return;
-      if(it.copy){ copyText(it.copy).then(function(){ toast("Copied "+it.copy); },function(){ toast("Answer: "+it.copy); }); }
+      if(it.copy){ clip=it.copy; copyText(it.copy).then(function(){ toast("Copied "+it.copy); },function(){ toast("Answer: "+it.copy); }); }
       else if(it.kind==="web") toast("Opening your browser… (demo)");
-      else if(it.kind==="file"||it.kind==="folder") toast("Opening "+it.t+"… (demo)");
-      else if(it.kind==="setting") toast("Opening settings: "+it.t+" (demo)");
-      else if(it.kind==="open") toast("Switching to "+it.t+" (demo)");
+      else if(it.kind==="setting") toast("Opening Windows Settings: "+it.t+" (demo)");
+      else if(it.kind==="action") toast("Demo only: “"+it.t+"” would run on your PC");
       else toast("Opening "+it.t+"… (demo)"); }
     function take(){ userMode=true; }
+    function setCat(c){ cat=c; [].forEach.call(qCats.children,function(b){ var on=b.dataset.c===c; b.classList.toggle("on",on); b.setAttribute("aria-selected",on); }); refresh(); }
+    TABS.forEach(function(t){ var b=document.createElement("button"); b.type="button"; b.dataset.c=t[0]; b.setAttribute("role","tab"); b.textContent=t[1]; b.addEventListener("click",function(){ take(); setCat(t[0]); }); qCats.appendChild(b); });
     qIn.addEventListener("input",function(){ take(); refresh(); });
     qIn.addEventListener("focus",take);
     qWin.addEventListener("pointerdown",take);
-    qIn.addEventListener("keydown",function(e){ var sel=items.map(function(x,k){return x.sec?-1:k;}).filter(function(k){return k>=0;}), p=sel.indexOf(act);
-      if(e.key==="ArrowDown"){ e.preventDefault(); selectOnly(sel[(p+1)%sel.length]); }
-      else if(e.key==="ArrowUp"){ e.preventDefault(); selectOnly(sel[(p-1+sel.length)%sel.length]); }
-      else if(e.key==="Enter"){ e.preventDefault(); run(items[act]); }
+    qIn.addEventListener("keydown",function(e){ var sel=items.map(function(x,k){return selectable(x)?k:-1;}).filter(function(k){return k>=0;}), p=sel.indexOf(act);
+      if(e.key==="ArrowDown"&&sel.length){ e.preventDefault(); selectOnly(sel[(p+1)%sel.length]); }
+      else if(e.key==="ArrowUp"&&sel.length){ e.preventDefault(); selectOnly(sel[(p-1+sel.length)%sel.length]); }
+      else if(e.key==="Enter"){ e.preventDefault(); if(act>=0) run(items[act]); }
       else if(e.key==="Escape"){ qIn.value=""; refresh(); } });
     qList.addEventListener("click",function(e){ var li=e.target.closest("li[data-k]"); if(!li) return; selectOnly(+li.dataset.k); run(items[+li.dataset.k]); });
     qList.addEventListener("mousemove",function(e){ var li=e.target.closest("li[data-k]"); if(li&&+li.dataset.k!==act) selectOnly(+li.dataset.k); });
     function nudge(){ qWin.classList.remove("nudge"); void qWin.offsetWidth; qWin.classList.add("nudge"); }
-    function fill(v,focus){ take(); qIn.value=v; refresh(); nudge(); if(focus) qIn.focus({preventScroll:true}); }
+    function fill(v,focus){ take(); if(cat!=="all") setCat("all"); qIn.value=v; refresh(); nudge(); if(focus) qIn.focus({preventScroll:true}); }
     [].forEach.call(document.querySelectorAll(".qf-feats .fc"),function(b){ b.addEventListener("click",function(){ fill(b.dataset.q,false); document.getElementById("qfDesk").scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"}); }); });
     document.getElementById("qfKeys").addEventListener("click",function(){ nudge(); qIn.focus({preventScroll:true}); });
     /* real Alt+Space while the demo is on screen */
     addEventListener("keydown",function(e){ if(e.altKey&&(e.code==="Space"||e.key===" ")){ var r=qDemo.getBoundingClientRect(); if(r.top<innerHeight&&r.bottom>0){ e.preventDefault(); nudge(); qIn.focus({preventScroll:true}); } } });
     /* clock */
     var clk=document.getElementById("qfClock"); function tick(){ var d=new Date(); clk.textContent=d.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})+"\n"+d.toLocaleDateString([],{day:"2-digit",month:"short"}); } tick(); setInterval(tick,30000);
-    refresh();
+    setCat("all");
     /* auto-play examples until the visitor touches it */
-    var autoStarted=false, demos=["notepad","(125 + 75) * 2","10 km to miles","bluetooth","resume"];
+    var autoStarted=false, demos=["notepad","(125 + 75) * 2","wallpaper","10 km to miles","screenshot"];
     async function auto(){ if(autoStarted||reduce) return; autoStarted=true; var i=0; await wait(600);
       while(!userMode){ var s=demos[i%demos.length]; i++; qIn.value=""; for(var k=1;k<=s.length&&!userMode;k++){ qIn.value=s.slice(0,k); refresh(); await wait(230); } if(userMode) break; await wait(3200); }
     }
