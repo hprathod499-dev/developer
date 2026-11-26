@@ -753,7 +753,7 @@ html.nb-anim .lit .w.on{opacity:1}
 /* draggable feature cards */
 .drag-hint{text-align:center;font:500 12px var(--mono);letter-spacing:.06em;color:#7E84A6;margin-top:14px}
 .qc{cursor:grab;user-select:none;-webkit-user-select:none;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
-.qc.grabbing{cursor:grabbing;z-index:20;scale:1.05;box-shadow:0 44px 80px -24px rgba(0,0,0,.95),0 0 70px -16px rgba(255,61,129,.7);transition:none}
+.qc.grabbing{cursor:grabbing;z-index:20;scale:1.05;will-change:translate,rotate;box-shadow:0 44px 80px -24px rgba(0,0,0,.95),0 0 70px -16px rgba(255,61,129,.7);transition:none}
 .qc.settle{transition:transform .2s linear,translate .45s cubic-bezier(.2,.9,.25,1.2),rotate .45s cubic-bezier(.2,.9,.25,1.2),scale .3s}
 .qc{rotate:0deg}
 /* feature cards: smooth float, lift on hover, dealt-in entrance */
@@ -1455,29 +1455,41 @@ html.nb-anim .scatter .qc[data-a].is-in{opacity:1;translate:0 0;rotate:0deg;scal
 </script>
 
 <script>
-/* drag the feature cards */
+/* drag the feature cards: smoothed follow, soft tilt, gentle throw */
 (function(){
   var scat=document.getElementById("scatter"); if(!scat) return;
-  var top=20;
+  var top=20, reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
   [].forEach.call(scat.querySelectorAll(".qc"),function(el){
-    var sx=0,sy=0,ox=0,oy=0,id=null,lastX=0;
-    function cur(){ var t=(el.style.translate||"0px 0px").split(" "); return [parseFloat(t[0])||0,parseFloat(t[1])||0]; }
+    var tx=0,ty=0,gx=0,gy=0,rot=0,vx=0,vy=0,id=null,offX=0,offY=0,lastT=0,lastX=0,lastY=0,raf=0,mode="idle",lim=null;
+    function limits(){ /* where the card may go: mostly on screen, near its section */
+      var r=el.getBoundingClientRect(), s=scat.getBoundingClientRect(), bx=r.left-tx, by=r.top-ty, w=r.width, h=r.height;
+      return {x0:-w*.35-bx, x1:innerWidth+w*.35-w-bx, y0:s.top-120-by, y1:s.bottom+120-h-by}; }
+    function bound(){ if(!lim) return; gx=clamp(gx,lim.x0,lim.x1); gy=clamp(gy,lim.y0,lim.y1); }
+    function frame(){
+      if(mode==="glide"){ gx+=vx; gy+=vy; vx*=.9; vy*=.9; var gx0=gx,gy0=gy; bound(); if(gx!==gx0) vx*=-.3; if(gy!==gy0) vy*=-.3; if(Math.abs(vx)<.15&&Math.abs(vy)<.15) mode="settle"; }
+      var k=mode==="drag"?.38:.22; tx+=(gx-tx)*k; ty+=(gy-ty)*k;
+      var want=mode==="drag"?clamp(vx*1.1,-7,7):0; rot+=(want-rot)*.18;
+      el.style.translate=tx.toFixed(2)+"px "+ty.toFixed(2)+"px"; el.style.rotate=rot.toFixed(2)+"deg";
+      if(mode!=="drag"&&mode!=="glide"&&Math.abs(gx-tx)<.3&&Math.abs(gy-ty)<.3&&Math.abs(rot)<.05){ tx=gx; ty=gy; rot=0; el.style.translate=tx+"px "+ty+"px"; el.style.rotate="0deg"; mode="idle"; raf=0; return; }
+      raf=requestAnimationFrame(frame); }
+    function run(){ if(!raf) raf=requestAnimationFrame(frame); }
     el.addEventListener("pointerdown",function(e){
       if(e.pointerType==="mouse"&&e.button!==0) return;
-      id=e.pointerId; sx=e.clientX; sy=e.clientY; lastX=e.clientX; var c=cur(); ox=c[0]; oy=c[1];
-      el.classList.remove("settle"); el.classList.add("grabbing"); el.style.zIndex=++top; try{ el.setPointerCapture(id); }catch(x){} });
+      id=e.pointerId; lim=limits(); offX=gx-e.clientX; offY=gy-e.clientY; gx=tx; gy=ty; offX=tx-e.clientX; offY=ty-e.clientY;
+      lastT=performance.now(); lastX=e.clientX; lastY=e.clientY; vx=vy=0; mode="drag";
+      el.classList.remove("settle"); el.classList.add("grabbing"); el.style.zIndex=++top; try{ el.setPointerCapture(id); }catch(x){} run(); });
     el.addEventListener("pointermove",function(e){
       if(e.pointerId!==id) return;
-      var dx=ox+e.clientX-sx, dy=oy+e.clientY-sy, r=el.getBoundingClientRect(), s=scat.getBoundingClientRect(), c=cur();
-      // keep the card on screen sideways and near the section
-      var nx=r.left+(dx-c[0]), ny=r.top+(dy-c[1]);
-      if(nx<-r.width*.35) dx+= -r.width*.35-nx; if(nx+r.width>innerWidth+r.width*.35) dx-= nx+r.width-innerWidth-r.width*.35;
-      if(ny<s.top-120) dy+= s.top-120-ny; if(ny+r.height>s.bottom+120) dy-= ny+r.height-s.bottom-120;
-      el.style.translate=dx+"px "+dy+"px";
-      el.style.rotate=Math.max(-6,Math.min(6,(e.clientX-lastX)*.8))+"deg"; lastX=e.clientX; });
-    function end(e){ if(e.pointerId!==id) return; id=null; el.classList.remove("grabbing"); el.classList.add("settle"); el.style.rotate="0deg"; try{ el.releasePointerCapture(e.pointerId); }catch(x){} }
+      var now=performance.now(), dt=Math.max(8,now-lastT);
+      /* velocity in px per frame (16ms), smoothed */
+      vx=vx*.6+((e.clientX-lastX)/dt*16)*.4; vy=vy*.6+((e.clientY-lastY)/dt*16)*.4;
+      lastT=now; lastX=e.clientX; lastY=e.clientY;
+      gx=e.clientX+offX; gy=e.clientY+offY; bound(); });
+    function end(e){ if(e.pointerId!==id) return; id=null; el.classList.remove("grabbing"); try{ el.releasePointerCapture(e.pointerId); }catch(x){}
+      if(performance.now()-lastT>90){ vx=vy=0; } mode=reduce?"settle":"glide"; vx=clamp(vx,-40,40); vy=clamp(vy,-40,40); run(); }
     el.addEventListener("pointerup",end); el.addEventListener("pointercancel",end);
-    el.addEventListener("dblclick",function(){ el.classList.add("settle"); el.style.translate="0px 0px"; });
+    el.addEventListener("dblclick",function(){ gx=0; gy=0; vx=vy=0; mode="settle"; run(); });
     el.addEventListener("dragstart",function(e){ e.preventDefault(); });
   });
 })();
