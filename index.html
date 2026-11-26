@@ -438,7 +438,7 @@ html,body{overflow-x:clip;max-width:100%}
 #glow{position:fixed;left:0;top:0;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(255,61,129,.10),rgba(176,77,255,.05) 40%,transparent 70%);transform:translate(-50%,-50%);opacity:0;transition:opacity .4s}
 .spark{position:absolute;width:10px;height:10px;pointer-events:none;background:radial-gradient(circle,#fff 0 30%,transparent 70%);border-radius:50%;animation:twinkle 1.6s ease-in-out forwards}
 @keyframes twinkle{0%{opacity:0;transform:scale(.2)}40%{opacity:1;transform:scale(1.4)}100%{opacity:0;transform:scale(.2) translateY(-14px)}}
-.hero h1 em{position:relative;display:block}
+.hero h1 em{position:relative;display:block;white-space:nowrap;width:max-content;max-width:none;margin-left:auto;margin-right:auto}
 
 /* ===== fast swipe app viewer (replaces slow pinned scroll) ===== */
 .story{height:auto}
@@ -1245,6 +1245,9 @@ html.nb-anim .lit .w.on{opacity:1}
 
   /* sparkles on the italic line */
   var em=document.getElementById("heroEm");
+  /* keep the italic line on one line: shrink it only as much as the screen needs */
+  function fitEm(){ em.style.fontSize=""; var box=em.parentNode.clientWidth, w=em.offsetWidth; if(box>0&&w>box){ var fs=parseFloat(getComputedStyle(em).fontSize); em.style.fontSize=Math.floor(fs*box/w*0.98*10)/10+"px"; } }
+  fitEm(); addEventListener("resize",fitEm); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitEm);
   if(!reduce) setInterval(function(){ var sp=document.createElement("span"); sp.className="spark"; sp.style.left=(10+Math.random()*80)+"%"; sp.style.top=(15+Math.random()*65)+"%"; em.appendChild(sp); setTimeout(function(){ sp.remove(); },1700); },450);
 
   /* per-app glow in story */
