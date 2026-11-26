@@ -438,7 +438,7 @@ html,body{overflow-x:clip;max-width:100%}
 #glow{position:fixed;left:0;top:0;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(255,61,129,.10),rgba(176,77,255,.05) 40%,transparent 70%);transform:translate(-50%,-50%);opacity:0;transition:opacity .4s}
 .spark{position:absolute;width:10px;height:10px;pointer-events:none;background:radial-gradient(circle,#fff 0 30%,transparent 70%);border-radius:50%;animation:twinkle 1.6s ease-in-out forwards}
 @keyframes twinkle{0%{opacity:0;transform:scale(.2)}40%{opacity:1;transform:scale(1.4)}100%{opacity:0;transform:scale(.2) translateY(-14px)}}
-.hero h1 em{position:relative;display:block;width:max-content;max-width:calc(100vw - 24px);margin-left:50%;translate:-50% 0}
+.hero h1 em{position:relative;display:block;width:max-content;max-width:calc(100vw - 88px);padding:0 .12em;margin-left:50%;translate:-50% 0;box-sizing:border-box}
 
 /* ===== fast swipe app viewer (replaces slow pinned scroll) ===== */
 .story{height:auto}
@@ -1031,7 +1031,7 @@ html.nb-anim .lit .w.on{opacity:1}
 
   /* name in five scripts */
   /* a heartfelt welcome, in each language */
-  var names=[["આપનું હૃદયપૂર્વક સ્વાગત છે","gu"],["आपका हार्दिक स्वागत है","hi"],["आपले मनःपूर्वक स्वागत आहे","mr"],["আপনাকে আন্তরিক স্বাগতম","bn"],["உங்களை அன்புடன் வரவேற்கிறோம்","ta"]];
+  var names=[["આપનું હૃદયપૂર્વક સ્વાગત છે","gu"],["आपका हार्दिक स्वागत है","hi"],["आपले हार्दिक स्वागत आहे","mr"],["আপনাকে আন্তরিক স্বাগতম","bn"],["உங்களை அன்புடன் வரவேற்கிறோம்","ta"]];
   var nm=document.getElementById("nmText"), nTabs=document.getElementById("nameTabs"), ni=0, nT=null;
   function fitName(){ nm.style.fontSize=""; var box=nm.parentNode.clientWidth-12, w=nm.offsetWidth; if(box>0&&w>box){ var fs=parseFloat(getComputedStyle(nm).fontSize); nm.style.fontSize=Math.max(12,Math.floor(fs*box/w*10)/10)+"px"; } }
   addEventListener("resize",fitName); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitName);
